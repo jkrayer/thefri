@@ -1,0 +1,539 @@
+<!doctype html>
+<html lang="en-US" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="The web site of New Jersey based developer, James Krayer"
+    />
+    <title>Home</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+
+  <!--
+  Unstyled
+  Inline
+    bdo, cite, dnf, map, object, output, q, samp, script, tt, 
+  Block
+    <address>, <canvas>, <noscript>, <video>, <figure>, <figcaption>, <pre>
+  -->
+
+  <body id="typography">
+    <header id="root-header">
+      <div class="grid">
+        <h1 id="root-title">
+          <a href="#">Dungeons & Dragons</a>
+        </h1>
+
+        <button class="hamburger-menu" data-opens="main-navigation">
+          <div class="hamburger-line" rol="image"></div>
+          <div class="hamburger-line" rol="image"></div>
+          <div class="hamburger-line" rol="image"></div>
+        </button>
+      </div>
+    </header>
+
+    <nav
+      class="tray right"
+      aria-label="Main Site Navigation"
+      data-is="main-navigation"
+    >
+      <menu>
+        <li><a href="#">Posts</a></li>
+        <li>
+          <a href="#">Campaigns</a>
+          <menu>
+            <li>
+              <a href="#">Thieves of Capitol</a>
+            </li>
+          </menu>
+        </li>
+        <li><a href="#">Rules</a></li>
+      </menu>
+    </nav>
+
+    <main class="layout-sidebar">
+      <aside class="sidebar">
+        <header>
+          <hgroup><h5>Table of Contents</h5></hgroup>
+        </header>
+
+        <nav class="sidebar-content" aria-label="Table Of Contents">
+          <menu>
+            <li><a href="#typography">Typography</a></li>
+            <li><a href="#lists">Lists</a></li>
+            <li><a href="#tables">Tables</a></li>
+            <li><a href="#forms">Forms</a></li>
+            <li><a href="#articles">Articles</a></li>
+            <li><a href="#timeline">Timeline</a></li>
+          </menu>
+        </nav>
+        <footer>
+          <div
+            style="width: 100%; height: 35px; background-color: cadetblue"
+          ></div>
+        </footer>
+      </aside>
+
+      <div class="main">
+
+        <h1>Heading 1</h1>
+        <h2>Heading 2</h2>
+        <h3>Heading 3</h3>
+        <h4>Heading 4</h4>
+        <h5>Heading 5</h5>
+        <h6>Heading 6</h6>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vel
+          cursus nibh, vel blandit nulla. Proin venenatis libero ut neque
+          malesuada semper. Sed venenatis libero ac ex vehicula, vel tincidunt
+          quam aliquam. Nullam sed pulvinar felis. Aliquam sagittis, enim eget
+          vestibulum ullamcorper, mi tortor ultrices velit, vitae eleifend nunc
+          arcu vitae neque. Vivamus vitae justo vel ante lobortis lacinia vitae
+          ac dolor. Pellentesque ornare tempus egestas. Maecenas ornare sagittis
+          ligula at laoreet. Donec euismod nunc nulla, vel lacinia ante
+          efficitur vitae.
+        </p>
+
+        <p>
+          This is a paragraph with <strong>bold text</strong>,
+          <em>italic text</em>, <strong><em>bold italic text</em></strong
+          >, and <a href="#">a link</a>.
+        </p>
+
+        <p>
+          The "i" tag is for "idiomatic" text such as technical terms; i.e.
+          <i>bandwidth</i>. The "b" tag is used to <b>draw attention</b> to text
+          but should not be used for style or importance.
+        </p>
+
+        <p>
+          This is a paragraph with <ins>inserted</ins>, <del>removed</del>, and
+          <mark>marked</mark> text.
+        </p>
+
+        <p>
+          Here's some <code>inline code</code>, <var>variable</var> and
+          <samp>sample output</samp>.
+        </p>
+
+        <p>
+          Here's some text with a superscript<sup>1</sup> and with a
+          subscript<sub>2</sub>.
+        </p>
+
+        <p>
+          The "big" tag is deprecated but
+          <small>"small" represents side-comments or small print</small>.
+        </p>
+
+        <!-- acronym tag deprecated in HTML5  -->
+        <p>
+          <abbr title="Dungeons and Dragons">D&D</abbr> is the abbreviation for
+          Dungeons and Dragons.
+        </p>
+
+        <p><time datetime="2024-01-15">January 15, 2024</time></p>
+
+        <blockquote>
+          This is a blockquote. It's styled automatically.
+        </blockquote>
+
+        <hr />
+
+        <h2 id="lists">Lists</h2>
+
+        <h3>Ordered</h3>
+
+        <ol>
+          <li>List Item 1</li>
+          <li>
+            List Item 2
+            <ol>
+              <li>List Item 1</li>
+              <li>List Item 2</li>
+              <li>List Item 3</li>
+            </ol>
+          </li>
+          <li>List Item 3</li>
+        </ol>
+
+        <h3>Unordered</h3>
+
+        <ul>
+          <li>List Item 1</li>
+          <li>
+            List Item 2
+            <ul>
+              <li>List Item 1</li>
+              <li>List Item 2</li>
+              <li>List Item 3</li>
+            </ul>
+          </li>
+          <li>List Item 3</li>
+        </ul>
+
+        <h3>Definition</h3>
+
+        <dl>
+          <dt>onomatopoeia</dt>
+          <dd>
+            the naming of a thing or action by a vocal imitation of the sound
+            associated with it : the creation of words that imitate natural
+            sounds (such as buzz, hiss)
+          </dd>
+          <dd>the use of words whose sound suggests the sense</dd>
+          <dt>ubiquitous</dt>
+          <dd>existing or being everywhere at the same time</dd>
+        </dl>
+
+        <hr />
+
+        <h2 id="tables">Tables</h2>
+
+        <p>A table with multiple tbody elements</p>
+
+        <div class="table-container">
+          <table>
+            <caption>
+              Table IV: Assassin Experience Table
+            </caption>
+            <thead>
+              <tr>
+                <th>Level</th>
+                <th>XP</th>
+                <th>HD (d6)</th>
+                <th>THAC0</th>
+                <th>Points</th>
+                <th>Back-Stab</th>
+                <th>Assassinate<sup>**</sup></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>0</td>
+                <td>1</td>
+                <td>20</td>
+                <td>60</td>
+                <td>x2</td>
+                <td>50%</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>1,501</td>
+                <td>2</td>
+                <td></td>
+                <td>22</td>
+                <td></td>
+                <td>55%</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>3,001</td>
+                <td>3</td>
+                <td>19</td>
+                <td>22</td>
+                <td></td>
+                <td>60%</td>
+              </tr>
+            </tbody>
+            <tbody>
+              <tr>
+                <td>4</td>
+                <td>6,001</td>
+                <td>4</td>
+                <td></td>
+                <td>22</td>
+                <td></td>
+                <td>65%</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td>13,001</td>
+                <td>5</td>
+                <td>18</td>
+                <td>22</td>
+                <td>x3</td>
+                <td>70%</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td>27,501</td>
+                <td>6</td>
+                <td></td>
+                <td>22</td>
+                <td></td>
+                <td>75%</td>
+              </tr>
+            </tbody>
+            <tbody>
+              <tr>
+                <td>7</td>
+                <td>55,001</td>
+                <td>7</td>
+                <td>17</td>
+                <td>22</td>
+                <td></td>
+                <td>80%</td>
+              </tr>
+              <tr>
+                <td>8</td>
+                <td>110,001</td>
+                <td>8</td>
+                <td></td>
+                <td>22</td>
+                <td></td>
+                <td>85%</td>
+              </tr>
+              <tr>
+                <td>9</td>
+                <td>225,001*</td>
+                <td>9</td>
+                <td>16</td>
+                <td>22</td>
+                <td>x4</td>
+                <td>90%</td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td colspan="7"><sup>*</sup> Table foot note one.</td>
+              </tr>
+              <tr>
+                <td colspan="7"><sup>**</sup> Table foot note two.</td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+
+        <p>
+          A table with one <code>tbody</code> element using class
+          <code>compact</code>.
+        </p>
+
+        <div class="table-container">
+          <table class="compact">
+            <caption>
+              Dwarven Saving Throws
+            </caption>
+            <thead>
+              <tr>
+                <th>Constitution<br />Score</th>
+                <th>Bonus*</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>3-6</td>
+                <td>+1</td>
+              </tr>
+              <tr>
+                <td>7-10</td>
+                <td>+2</td>
+              </tr>
+              <tr>
+                <td>11-13</td>
+                <td>+3</td>
+              </tr>
+              <tr>
+                <td>14-17</td>
+                <td>+4</td>
+              </tr>
+              <tr>
+                <td>18-20</td>
+                <td>+5</td>
+              </tr>
+              <tr>
+                <td>21+</td>
+                <td>+6</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <hr />
+
+        <h2 id="forms">Forms</h2>
+        <form>
+          <fieldset>
+            <legend>Form Elements</legend>
+            <!-- color -->
+            <!-- date -->
+            <!-- datetime-local -->
+            <label
+              >Email:
+              <input autocomplete="email" type="email" />
+            </label>
+            <!-- month -->
+            <!-- number -->
+            <!-- month -->
+            <!-- number -->
+            <label
+              >Password:
+              <input autocomplete="current-password" type="password" />
+            </label>
+            <!-- range -->
+            <!-- search -->
+            <!-- tel -->
+            <label for="text-input"
+              >Text Input:
+              <input type="text" placeholder="Enter text" />
+            </label>
+            <!-- time -->
+            <!-- url -->
+            <!-- week -->
+            <label
+              >Select:
+              <select>
+                <option>Option 1</option>
+                <option>Option 2</option>
+              </select>
+            </label>
+
+            <label
+              >Textarea:
+              <textarea rows="4"></textarea>
+            </label>
+
+            <label> <input type="checkbox" checked /> Checkbox </label>
+
+            <fieldset class="hstack">
+              <legend>Select One</legend>
+              <label>
+                <input type="radio" name="radio" checked /> Radio 1
+              </label>
+              <label> <input type="radio" name="radio" />Radio 2 </label>
+            </fieldset>
+
+            <div>
+              <button type="submit">Submit</button>
+              <button type="reset">Reset</button>
+              <button disabled type="button">Button</button>
+            </div>
+          </fieldset>
+        </form>
+
+        <h2 id="articles">Article</h2>
+
+        <article>
+          <header>
+            <hgroup>
+              <div>
+                <a href="#">Proposals</a>
+              </div>
+              <h1>
+                <a href="#">
+                  Thieves of Capitol Chapter Two: Season of Skullduggery
+                </a>
+              </h1>
+            </hgroup>
+            <time datetime="2026-02-07">February 2, 2026</time>
+          </header>
+
+          <p>
+            An amount of years before the war with the Elves, during the reign
+            of Emperor Leto, the Undying, a group of thieves tries to make a
+            name for themselves in the bustling streets of Capitol. In this
+            second chapter, the player's fledgling crew, "The Baker's Dozen,"
+            expands and establishes themselves as independent actors. After the
+            loss of their patron, Joey Silver-Thumbs, and the flight of their
+            friend Shel, "The Bakers Dozen," rebuilds their crew and forges a
+            network of their own.
+          </p>
+        </article>
+
+        <article>
+          <header>
+            <hgroup>
+              <div>
+                <a href="#">Proposals</a>
+              </div>
+              <h2>
+                <a href="#">
+                  Thieves of Capitol Chapter Two: Season of Skullduggery
+                </a>
+              </h2>
+            </hgroup>
+            <time datetime="2026-02-07">February 2, 2026</time>
+          </header>
+
+          <p>
+            An amount of years before the war with the Elves, during the reign
+            of Emperor Leto, the Undying, a group of thieves tries to make a
+            name for themselves in the bustling streets of Capitol. In this
+            second chapter, the player's fledgling crew, "The Baker's Dozen,"
+            expands and establishes themselves as independent actors. After the
+            loss of their patron, Joey Silver-Thumbs, and the flight of their
+            friend Shel, "The Bakers Dozen," rebuilds their crew and forges a
+            network of their own.
+          </p>
+        </article>
+
+        <h2 id="timeline">Timeline</h2>
+
+        <div class="timeline">
+          <article class="timeline-entry">
+            <header>
+              <hgroup>
+                <h2><a href="#">Thefri's Hunting Trophy</a></h2>
+              </hgroup>
+              <div class="timeline-time">Month 6, Day 18, Year 757</div>
+            </header>
+            <p>
+              The "Baker's Dozen" breaks into House Kleidemos to recover a
+              hunting trophy for the client.
+            </p>
+          </article>
+          <article class="timeline-entry">
+            <header>
+              <hgroup>
+                <h2>The Kidnapping of Lysandra</h2>
+              </hgroup>
+              <div class="timeline-time">Month 6, Day 16, Year 757</div>
+            </header>
+            <p>
+              The "Baker's Dozen" scours the streets of Capitol to rescue
+              Lysandra, daughter of Arch-Cleric Astora.
+            </p>
+          </article>
+          <article class="timeline-entry">
+            <header>
+              <hgroup>
+                <h2>New Recruits</h2>
+              </hgroup>
+              <div class="timeline-time">Month 6, Day 15, Year 757</div>
+            </header>
+            <p>
+              After a long hiatus the "Baker's Dozen" meets with their new
+              recruits to select their first job.
+            </p>
+          </article>
+        </div>
+
+        <!-- MEDIA
+    <figure>
+      <img src="placeholder.jpg" alt="Placeholder image" />
+      <figcaption>Image caption</figcaption>
+    </figure>
+
+    <video controls width="320" height="240">
+      <source src="video.mp4" type="video/mp4" />
+    </video>
+
+    <audio controls>
+      <source src="audio.mp3" type="audio/mpeg" />
+    </audio>
+    -->
+      </div>
+    </main>
+    <script src="./core.js"></script>
+  </body>
+</html>

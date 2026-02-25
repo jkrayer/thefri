@@ -1,2 +1,3 @@
-# thefri
-A minimal CSS Framework
+# Thefri
+
+Thefri is a minimal CSS framework inspired be the design of Advanced Dungeons and Dragons and minimal CSS libraries such as ...
