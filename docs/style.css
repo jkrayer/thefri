@@ -1,0 +1,681 @@
+@charset "UTF-8";
+/**
+ * A simple CSS reset and base styles for typography, lists, and tables.
+ * It uses CSS variables for easy customization of fonts, colors, and spacing.
+ * The font sizes are based on a minor second scale (1.067) from typescale.com.
+ * 
+ * 1. CSS Variables: Define custom properties for fonts, colors, and spacing.
+ * 2. Base Styles: Set default styles for body, headings, paragraphs, lists, and tables.
+ * 3. Text Styling: Style for mark and blockquote elements.
+ * 4. List Styling: Set margins and font weights for lists.
+ * 5. Table Styling: Define styles for tables, including caption, headers, and alternating body colors.
+ * 6. Form Styling: Style for form elements like fieldset, label, input, select, textarea, and buttons.
+ * 7. Layout: A utility class for horizontal stacking of elements using flexbox.
+ * 8. Article: Styles for article elements, including header and time.
+ * 9. Timeline: Styles for a timeline component, including entries and their headers.
+ */
+
+/* 1. CSS Variables */
+:root {
+  --font-family-sans-serif: "Jost", sans-serif;
+  /* https://typescale.com/ 1.067 Minor Second */
+  --base-font-size: 100%;
+  --text-size-xs: 0.878rem;
+  --text-size-s: 0.937rem;
+  --text-size-p: 1rem;
+  --text-size-h6: 1.067rem;
+  --text-size-h5: 1.138rem;
+  --text-size-h4: 1.215rem;
+  --text-size-h3: 1.296rem;
+  --text-size-h2: 1.383rem;
+  --text-size-h1: 1.476rem;
+  --text-bold: 600;
+  /* grays */
+  --gray00: rgb(0, 0, 0);
+  --gray10: rgb(26, 26, 26);
+  --gray20: rgb(51, 51, 51);
+  --gray30: rgb(77, 77, 77);
+  --gray40: rgb(102, 102, 102);
+  --gray50: rgb(128, 128, 128);
+  --gray60: rgb(153, 153, 153);
+  --gray70: rgb(179, 179, 179);
+  --gray80: rgb(204, 204, 204);
+  --gray90: rgb(230, 230, 230);
+  --gray100: rgb(255, 255, 255);
+  /* sizes */
+  --size-xs: 0.25em;
+  --size-s: 0.5rem;
+  --size-m: 1em;
+  --size-l: 2em;
+  --size-xl: 3em;
+  /* Theme */
+  --base-text-color: var(--gray00);
+  --base-text-light: var(--gray30);
+  --link: var(--gray40);
+  /* shadows */
+  --shadow-down: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+  /* ? */
+  --global-header-size: 49px;
+  --global-header-z-index: 5;
+  --sidebar-width: 200px;
+  /* indexes */
+}
+
+/* 2. Base Styles */
+html,
+body {
+  font-family: var(--font-family-sans-serif);
+  font-size: var(--base-font-size);
+  line-height: 1.5;
+  color: var(--base-text-color);
+  scroll-behavior: smooth;
+  text-wrap: pretty;
+}
+
+/* Should I * rule this? */
+fieldset {
+  box-sizing: border-box;
+}
+
+/* var(--text-size-h1) */
+html,
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote {
+  padding: 0;
+  margin: 0;
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: var(--size-l) 0 var(--size-m);
+}
+
+hgroup > h1,
+hgroup > h2,
+hgroup > h3,
+hgroup > h4,
+hgroup > h5 {
+  margin: 0;
+  text-align: left;
+}
+
+p,
+dl,
+table {
+  margin: var(--size-m) 0;
+}
+
+hr {
+  margin-block-start: var(--size-l);
+  margin-block-end: var(--size-l);
+  color: var(--gray70);
+  border-style: solid;
+  border-width: 1px;
+  border-bottom: 0;
+}
+
+/* 3. Text Styling */
+h1,
+h2,
+h3,
+h4,
+h5 {
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+h1 {
+  font-size: var(--text-size-h1);
+  text-align: center;
+}
+h2 {
+  font-size: var(--text-size-h2);
+}
+h3 {
+  font-size: var(--text-size-h3);
+}
+h4 {
+  font-size: var(--text-size-h4);
+}
+h5 {
+  font-size: var(--text-size-h5);
+}
+h6 {
+  font-size: var(--text-size-h6);
+  font-weight: var(--text-bold);
+}
+
+mark {
+  background-color: var(--gray90);
+}
+
+b,
+strong {
+  font-weight: var(--text-bold);
+}
+
+b {
+  text-transform: uppercase;
+}
+
+blockquote {
+  padding: var(--size-m);
+  border: solid 1px var(--gray00);
+  margin: var(--size-m);
+  margin-inline: var(--size-m);
+}
+
+a {
+  color: var(--link);
+}
+
+h1 > a,
+h2 > a {
+  color: var(--base-text-color);
+  text-decoration: none;
+}
+
+/* 4. List Styling */
+ol,
+ul {
+  margin-block-start: var(--size-m);
+  margin-block-end: var(--size-m);
+  padding-inline-start: var(--size-l);
+  padding-inline-end: var(--size-m);
+}
+
+ol > li,
+ul > li {
+  padding: 0 0 0 var(--size-l);
+  margin: var(--size-s) 0 var(--size-s) var(--size-m);
+}
+
+ol > li > ol,
+ul > li > ul {
+  padding-inline-start: var(--size-xs);
+}
+
+ol > li > ol {
+  list-style-type: upper-alpha;
+}
+
+dl,
+dt,
+dd {
+  margin-inline-start: 0;
+}
+
+dt {
+  display: inline;
+  font-weight: bold;
+}
+
+dd {
+  display: contents;
+}
+
+dd::after {
+  content: "";
+  display: block;
+  margin: 0.5em 0;
+}
+
+/* 5. Table Styling */
+.table-container {
+  overflow-x: auto;
+}
+
+table {
+  border: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+table:has(caption) {
+  margin-top: var(--size-l);
+}
+
+table th,
+table td {
+  padding: var(--size-xs) var(--size-s);
+  text-align: center;
+  vertical-align: top;
+}
+
+table > caption {
+  font-size: var(--text-size-h6);
+  text-transform: uppercase;
+  font-weight: var(--text-bold);
+  text-align: left;
+  white-space: nowrap;
+}
+
+table > thead > tr > th,
+table > tfoot > tr > td,
+small {
+  font-size: var(--text-size-s);
+}
+
+table > thead > tr > th {
+  font-weight: var(--text-bold);
+  text-align: center;
+  vertical-align: bottom;
+}
+
+table > tfoot > tr > td {
+  text-align: left;
+}
+
+table > tbody:not(:only-of-type):nth-of-type(odd) {
+  background-color: var(--gray80);
+}
+
+/* 6. Form */
+form,
+fieldset {
+  margin: var(--size-l) 0;
+}
+
+fieldset {
+  padding: var(--size-s) var(--size-m);
+  border: 1px solid var(--gray00);
+
+  & fieldset {
+    border-radius: var(--size-xs);
+  }
+}
+
+fieldset:has(button) {
+  padding-bottom: var(--size-l);
+}
+
+legend {
+  font-size: var(--text-size-s);
+  font-weight: var(--text-bold);
+}
+
+label {
+  display: block;
+  margin: var(--size-l) 0;
+  font-size: var(--text-size-xs);
+  line-height: 1;
+}
+
+input,
+select,
+textarea {
+  padding: var(--size-s);
+  border: 1px solid var(--gray00);
+  border-radius: var(--size-xs);
+  margin-top: var(--size-xs);
+  font-size: var(--text-size-s);
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus,
+button:hover:not(:disabled) {
+  outline: none;
+  box-shadow: 3px 3px 0 0 var(--gray20);
+}
+
+input[type="checkbox"]:focus,
+input[type="radio"]:focus {
+  box-shadow: 1px 1px 0 0 var(--gray20);
+}
+
+input:not([type="checkbox"]):not([type="radio"]),
+select,
+textarea {
+  box-sizing: border-box;
+  width: 100%;
+}
+
+/* Checks & Radios */
+input[type="checkbox"] + label,
+input[type="radio"] + label {
+  display: inline;
+}
+
+label:has(> input[type="checkbox"]),
+label:has(> input[type="radio"]) {
+  display: inline-flex;
+  align-items: center;
+  gap: calc(var(--text-size-xs) / 2);
+  margin: 0;
+  cursor: pointer;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  position: relative;
+  appearance: none;
+  padding: 0;
+  margin: 0;
+  width: var(--text-size-p);
+  height: var(--text-size-p);
+  cursor: pointer;
+  padding-block: 0;
+  padding-inline: 0;
+}
+
+input[type="checkbox"]:checked::after,
+input[type="radio"]:checked::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: var(--gray20);
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='4'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
+  mask-size: 90%;
+  mask-position: center;
+  mask-repeat: no-repeat;
+}
+
+input[type="radio"] {
+  border-radius: 50%;
+}
+
+/* button */
+button {
+  box-sizing: border-box;
+  padding: var(--size-s);
+  border: 1px solid var(--gray00);
+  border-radius: var(--size-xs);
+  color: var(--gray00);
+  background-color: var(--gray100);
+  cursor: pointer;
+  appearance: none;
+}
+
+button[type="submit"] {
+  border-color: var(--gray100);
+  color: var(--gray100);
+  background-color: var(--gray10);
+}
+
+button:disabled {
+  background-color: var(--gray90);
+  border-color: var(--gray90);
+  color: var(--gray20);
+  cursor: not-allowed;
+}
+
+button:active:not(:disabled) {
+  box-shadow: -3px -3px 0 0 var(--gray20);
+}
+
+/* 7. Layout */
+.hstack {
+  display: flex;
+  align-items: center;
+  gap: var(--text-size-xs);
+}
+
+/* 8. Article */
+article {
+  margin-block-start: var(--size-xl);
+  margin-block-end: var(--size-m);
+}
+
+/* article > header > hgroup > h1 {
+  text-align: left;
+} */
+
+article > header > hgroup > div {
+  font-size: var(--text-size-s);
+  text-transform: uppercase;
+}
+
+article > header > hgroup > div > a {
+  text-decoration: none;
+}
+
+article > header > time,
+.timeline-time {
+  font-size: var(--text-size-s);
+  color: var(--base-text-light);
+}
+
+/* 9. Timeline */
+.timeline,
+.timeline-entry {
+  box-sizing: border-box;
+}
+
+.timeline {
+  max-width: calc(calc(635px + var(--size-l) + 1px));
+  margin: var(--size-l);
+  border-left: 1px solid var(--gray50);
+}
+
+@media screen and (min-width: 735px) {
+  .timeline {
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+
+.timeline-entry {
+  position: relative;
+  max-width: 635px;
+  border: 1px solid #000;
+  margin-left: var(--size-l);
+  padding: var(--size-m);
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 7px auto auto -39px;
+    width: var(--size-s);
+    height: var(--size-s);
+    border: 2px solid var(--gray50);
+    border-radius: 50%;
+    background-color: var(--gray100);
+  }
+}
+
+.timeline-entry > header > hgroup > h2 {
+  font-size: var(--text-size-h4);
+}
+
+.timeline-entry > p {
+  margin-top: var(--size-s);
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+}
+
+/* 10. Navigation */
+.toc {
+  margin-block-end: var(--size-m);
+  margin-block-start: var(--size-m);
+}
+
+menu {
+  padding-inline-start: 1.125em;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  list-style-type: none;
+}
+
+menu a {
+  display: inline-block;
+  padding-top: var(--size-xs);
+  padding-bottom: var(--size-xs);
+}
+
+.toc menu {
+  list-style-type: decimal;
+}
+
+/* Root Navigation */
+#root-header {
+  box-sizing: border-box; /* count these 5 */
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: var(--global-header-z-index);
+  height: var(--global-header-size);
+  padding: var(--size-m);
+  background-color: var(--gray100);
+  box-shadow: var(--shadow-down);
+}
+
+#root-title {
+  margin: 0;
+  font-size: var(--text-size-h6);
+  line-height: 1;
+}
+
+.grid {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+main {
+  position: relative;
+  inset: var(--global-header-size) 0 0;
+  margin: 0 var(--size-m);
+}
+
+/* 11. Trays */
+.hamburger-menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  width: var(--text-size-h6);
+  height: var(--text-size-h6);
+  padding: 0;
+  border: 0;
+  margin: 0;
+  cursor: pointer;
+
+  &:hover:not(:disabled),
+  &:focus:not(:disabled) {
+    box-shadow: none;
+  }
+
+  & > .hamburger-line {
+    height: 2px;
+    background-color: var(--gray00);
+    transition: all 0.3s ease;
+    pointer-events: none;
+  }
+
+  &[data-open] {
+    & .hamburger-line:nth-child(1) {
+      transform: translateY(6px) rotate(45deg);
+    }
+
+    & > .hamburger-line:nth-child(2) {
+      opacity: 0;
+    }
+
+    & .hamburger-line:nth-child(3) {
+      transform: translateY(-6px) rotate(-45deg);
+    }
+  }
+}
+
+.tray {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: var(--global-header-size);
+  z-index: calc(var(--global-header-z-index) - 1);
+  width: 100%;
+  padding-top: var(--size-m);
+  height: calc(100vh - var(--global-header-size));
+  transition: transform 0.3s ease-in-out;
+  background-color: var(--gray100);
+}
+
+.right {
+  left: 100%;
+
+  &.open {
+    transform: translateX(-100%);
+  }
+}
+
+.left {
+  left: -100%;
+
+  &.open {
+    transform: translateX(100%);
+  }
+}
+
+/* Sidebar */
+.layout-sidebar {
+  & > .sidebar {
+    margin-top: var(--size-l);
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .layout-sidebar {
+    display: flex;
+    gap: var(--size-m);
+
+    & > .main {
+      margin-right: var(--size-m);
+    }
+
+    & > .sidebar {
+      box-sizing: border-box;
+      position: sticky;
+      top: var(--global-header-size);
+      display: flex;
+      flex-direction: column;
+      height: calc(100vh - var(--global-header-size));
+      min-width: var(--sidebar-width);
+      padding: var(--size-m) 0;
+      margin-top: 0;
+
+      /* & > header {} */
+
+      & .sidebar-content {
+        margin: var(--size-m) 0;
+        overflow-y: auto;
+        flex-grow: 1;
+
+        & > menu {
+          padding-inline-start: 0;
+        }
+      }
+
+      /* & > footer {} */
+    }
+  }
+}
+/**
+ * More Things 
+ *
+ * Sidebars/Navigation
+ * 1. Table of Contents
+ * 2. Global Header
+ * 3. Global Footer
+ *
+ * Tags: aside, footer, section>
+ *
+ * Components: Accordions, Popovers, Dialogs
+*/
+
+/* Add this to its own repo and start documentation link on jameskrayer.com */
