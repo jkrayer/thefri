@@ -176,6 +176,14 @@ blockquote {
   border: solid 1px var(--gray00);
   margin: var(--size-m);
   margin-inline: var(--size-m);
+
+  & > p:first-of-type {
+    margin-top: 0;
+  }
+
+  & > p:last-of-type {
+    margin-bottom: 0;
+  }
 }
 
 a {
