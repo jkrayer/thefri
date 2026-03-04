@@ -1,0 +1,130 @@
+/**
+ * TODO: This will most likely overlap with card, not created yet.
+ */
+
+.timeline-wrapper {
+  container-name: timeline;
+  container-type: inline-size;
+}
+
+.timeline {
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: calc(1.5 * var(--size-m));
+  margin: 0 auto;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0 auto 0 50%;
+    width: 1px;
+    background-color: var(--gray50);
+  }
+}
+
+.timeline-entry {
+  box-sizing: border-box;
+  position: relative;
+  max-width: 400px;
+  padding: var(--size-m);
+  border: 1px solid var(--gray90);
+  margin: 0 auto;
+  background-color: var(--global-background-color);
+  box-shadow: var(--shadow-down);
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: calc(var(--size-s) * -1) auto auto calc(50% - 6px);
+    z-index: 2;
+    width: var(--size-s);
+    height: var(--size-s);
+    border: 2px solid var(--gray50);
+    border-radius: 50%;
+    background-color: var(--gray100);
+  }
+}
+
+.timeline-entry-heading {
+  margin: calc(0.5 * var(--size-xs)) 0;
+}
+
+.timeline-entry-heading-pre,
+.timeline-entry-heading-post {
+  font-size: var(--text-size-s);
+  color: var(--base-text-light);
+}
+
+.timeline-entry-heading-pre {
+  text-transform: uppercase;
+}
+
+.timeline-entry-footer {
+  & > a {
+    display: block;
+  }
+}
+
+/* .timeline-entry-content, .timeline-entry-footer {} */
+
+@container timeline (width > 399px) {
+  .timeline {
+    gap: var(--size-xl);
+  }
+}
+
+@container timeline (width > 599px) {
+  .timeline {
+    width: 568px;
+  }
+
+  .timeline-entry:nth-of-type(even) {
+    margin-left: 0;
+
+    &::before {
+      left: 278px;
+    }
+  }
+
+  .timeline-entry:nth-of-type(odd) {
+    margin-right: 0;
+    &::before {
+      left: auto;
+      right: 276px;
+    }
+  }
+}
+
+@container timeline (width > 832px) {
+  .timeline {
+    width: 833px;
+  }
+
+  .timeline-entry {
+    &::before {
+      top: 22px;
+    }
+
+    &:first-of-type {
+      top: -23px;
+    }
+
+    &:not(:first-of-type) {
+      margin-top: -150px;
+    }
+  }
+
+  .timeline-entry:nth-of-type(even) {
+    &::before {
+      left: 409px;
+    }
+  }
+
+  .timeline-entry:nth-of-type(odd) {
+    &::before {
+      right: 409px;
+    }
+  }
+}
