@@ -12,7 +12,8 @@
  * 6. Form Styling: Style for form elements like fieldset, label, input, select, textarea, and buttons.
  * 7. Layout: A utility class for horizontal stacking of elements using flexbox.
  * 8. Article: Styles for article elements, including header and time.
- * 9. Timeline: Styles for a timeline component, including entries and their headers.
+ * 9. Navigation: Styles for table of contents and root navigation header.
+ * 10. Trays: Styles for hamburger menu and sliding trays for navigation.
  */
 
 /* 1. CSS Variables */
@@ -55,6 +56,7 @@
   /* shadows */
   --shadow-down: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
   /* ? */
+  --global-background-color: var(--gray100);
   --global-header-size: 49px;
   --global-header-z-index: 5;
   --sidebar-width: 200px;
@@ -69,7 +71,6 @@ body {
   line-height: 1.5;
   color: var(--base-text-color);
   scroll-behavior: smooth;
-  text-wrap: pretty;
 }
 
 /* Should I * rule this? */
@@ -452,63 +453,12 @@ article > header > hgroup > div > a {
   text-decoration: none;
 }
 
-article > header > time,
-.timeline-time {
+article > header > time {
   font-size: var(--text-size-s);
   color: var(--base-text-light);
 }
 
-/* 9. Timeline */
-.timeline,
-.timeline-entry {
-  box-sizing: border-box;
-}
-
-.timeline {
-  max-width: calc(calc(635px + var(--size-l) + 1px));
-  margin: var(--size-l);
-  border-left: 1px solid var(--gray50);
-}
-
-@media screen and (min-width: 735px) {
-  .timeline {
-    margin-right: auto;
-    margin-left: auto;
-  }
-}
-
-.timeline-entry {
-  position: relative;
-  max-width: 635px;
-  border: 1px solid #000;
-  margin-left: var(--size-l);
-  padding: var(--size-m);
-
-  &::before {
-    content: "";
-    position: absolute;
-    inset: 7px auto auto -39px;
-    width: var(--size-s);
-    height: var(--size-s);
-    border: 2px solid var(--gray50);
-    border-radius: 50%;
-    background-color: var(--gray100);
-  }
-}
-
-.timeline-entry > header > hgroup > h2 {
-  font-size: var(--text-size-h4);
-}
-
-.timeline-entry > p {
-  margin-top: var(--size-s);
-
-  &:last-of-type {
-    margin-bottom: 0;
-  }
-}
-
-/* 10. Navigation */
+/* 9. Navigation */
 .toc {
   margin-block-end: var(--size-m);
   margin-block-start: var(--size-m);
@@ -561,7 +511,7 @@ main {
   margin: 0 var(--size-m);
 }
 
-/* 11. Trays */
+/* 10. Trays */
 .hamburger-menu {
   display: flex;
   flex-direction: column;
