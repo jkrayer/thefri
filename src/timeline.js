@@ -53,6 +53,8 @@
   const init = (customSettings = {}) => {
     settings = { ...defaultSettings, ...customSettings };
 
+    const timeline = document.querySelector(settings.timeLineClass);
+
     if (timeline.offsetWidth > settings.threshold) {
       createTimeline();
     }
