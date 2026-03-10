@@ -23,6 +23,22 @@
 
 // Navigation ----------
 ((win) => {
+  const closeOnClick = (e) => {
+    if (
+      e.target.tagName === "A" &&
+      e.target.getAttribute("href").startsWith("#")
+    ) {
+      const menu = e.target.closest("[data-is]"); // remove open here
+
+      document
+        .querySelector(`[data-opens="${menu.dataset.is}"]`)
+        .removeAttribute("data-open");
+
+      menu.classList.remove("open");
+      menu.removeEventListener("click", closeOnClick);
+    }
+  };
+
   const init = () => {
     const burgers = document.querySelectorAll(".hamburger-menu");
 
@@ -36,9 +52,11 @@
           if (event.target.dataset.open) {
             event.target.removeAttribute("data-open");
             menu.classList.remove("open");
+            menu.removeEventListener("click", closeOnClick);
           } else {
             event.target.setAttribute("data-open", true);
             menu.classList.add("open");
+            menu.addEventListener("click", closeOnClick);
           }
         }
       });
