@@ -16,6 +16,7 @@
     />
     <link rel="stylesheet" href="./style.css" />
     <link rel="stylesheet" href="./timeline.css" />
+    <link rel="stylesheet" href="./grid12.css" />
   </head>
   <!--
   Unstyled
@@ -46,16 +47,13 @@
       data-is="main-navigation"
     >
       <menu>
-        <li><a href="#">Posts</a></li>
-        <li>
-          <a href="#">Campaigns</a>
-          <menu>
-            <li>
-              <a href="#">Thieves of Capitol</a>
-            </li>
-          </menu>
-        </li>
-        <li><a href="#">Rules</a></li>
+        <li><a href="#typography">Typography</a></li>
+        <li><a href="#lists">Lists</a></li>
+        <li><a href="#tables">Tables</a></li>
+        <li><a href="#forms">Forms</a></li>
+        <li><a href="#articles">Articles</a></li>
+        <li><a href="#timeline">Timeline</a></li>
+        <li><a href="#grid12">12 Col Grid</a></li>
       </menu>
     </nav>
 
@@ -73,6 +71,7 @@
             <li><a href="#forms">Forms</a></li>
             <li><a href="#articles">Articles</a></li>
             <li><a href="#timeline">Timeline</a></li>
+            <li><a href="#grid12">12 Col Grid</a></li>
           </menu>
         </nav>
         <footer>
@@ -718,6 +717,151 @@
       <source src="audio.mp3" type="audio/mpeg" />
     </audio>
     -->
+
+        <section id="grid12">
+          <style>
+            .testcol {
+              box-sizing: border-box;
+              height: 100%;
+              border: 1px solid var(--gray20);
+              padding: 1em;
+              background-color: var(--gray100);
+              text-align: center;
+            }
+            .testr {
+              background-color: var(--gray90);
+            }
+            .testh {
+              height: 100px;
+            }
+          </style>
+          <h2>12 Column Grid</h2>
+
+          <div class="row testr">
+            <div class="col-1"><div class="testcol">col span 1</div></div>
+            <div class="col-1"><div class="testcol">col span 1</div></div>
+            <div class="col-1"><div class="testcol">col span 1</div></div>
+            <div class="col-1"><div class="testcol">col span 1</div></div>
+            <div class="col-1"><div class="testcol">col span 1</div></div>
+            <div class="col-1"><div class="testcol">col span 1</div></div>
+            <div class="col-1"><div class="testcol">col span 1</div></div>
+            <div class="col-1"><div class="testcol">col span 1</div></div>
+            <div class="col-1"><div class="testcol">col span 1</div></div>
+            <div class="col-1"><div class="testcol">col span 1</div></div>
+            <div class="col-1"><div class="testcol">col span 1</div></div>
+            <div class="col-1"><div class="testcol">col span 1</div></div>
+          </div>
+
+          <div class="row testr">
+            <div class="col-2"><div class="testcol">col span 2</div></div>
+            <div class="col-2"><div class="testcol">col span 2</div></div>
+            <div class="col-2"><div class="testcol">col span 2</div></div>
+            <div class="col-2"><div class="testcol">col span 2</div></div>
+            <div class="col-2"><div class="testcol">col span 2</div></div>
+            <div class="col-2"><div class="testcol">col span 2</div></div>
+          </div>
+
+          <div class="row testr">
+            <div class="col-3"><div class="testcol">col span 3</div></div>
+            <div class="col-3"><div class="testcol">col span 3</div></div>
+            <div class="col-3"><div class="testcol">col span 3</div></div>
+            <div class="col-3"><div class="testcol">col span 3</div></div>
+          </div>
+
+          <div class="row testr">
+            <div class="col-4"><div class="testcol">col span 4</div></div>
+            <div class="col-4"><div class="testcol">col span 4</div></div>
+            <div class="col-4"><div class="testcol">col span 4</div></div>
+          </div>
+
+          <div class="row testr">
+            <div class="col-5"><div class="testcol">col span 5</div></div>
+            <div class="col-7"><div class="testcol">col span 7</div></div>
+          </div>
+
+          <div class="row testr">
+            <div class="col-6"><div class="testcol">col span 6</div></div>
+            <div class="col-6"><div class="testcol">col span 6</div></div>
+          </div>
+
+          <div class="row testr">
+            <div class="col-8"><div class="testcol">col span 8</div></div>
+            <div class="col-4"><div class="testcol">col span 4</div></div>
+          </div>
+
+          <div class="row testr">
+            <div class="col-9"><div class="testcol">col span 9</div></div>
+            <div class="col-3"><div class="testcol">col span 3</div></div>
+          </div>
+
+          <div class="row testr">
+            <div class="col-10"><div class="testcol">col span 10</div></div>
+            <div class="col-2"><div class="testcol">col span 2</div></div>
+          </div>
+
+          <div class="row testr">
+            <div class="col-11"><div class="testcol">col span 11</div></div>
+            <div class="col-1"><div class="testcol">col span 1</div></div>
+          </div>
+
+          <div class="row testr">
+            <div class="col-12"><div class="testcol">col span 12</div></div>
+          </div>
+
+          <div class="row testr right">
+            <div class="col-4"><div class="testcol">col span 4</div></div>
+          </div>
+
+          <div class="row testr center">
+            <div class="col-4"><div class="testcol">col span 4</div></div>
+            <div class="col-4"><div class="testcol">col span 4</div></div>
+          </div>
+
+          <div class="row testr between">
+            <div class="col-4"><div class="testcol">col span 4</div></div>
+            <div class="col-4"><div class="testcol">col span 4</div></div>
+          </div>
+
+          <div class="row testr around">
+            <div class="col-4"><div class="testcol">col span 4</div></div>
+            <div class="col-4"><div class="testcol">col span 4</div></div>
+          </div>
+
+          <div class="row testr even">
+            <div class="col-4"><div class="testcol">col span 4</div></div>
+            <div class="col-4"><div class="testcol">col span 4</div></div>
+          </div>
+
+          <div class="testr testh row bottom">
+            <div class="col-4"><div class="testcol">col span 4</div></div>
+            <div class="col-4"><div class="testcol">col span 4</div></div>
+            <div class="col-4"><div class="testcol">col span 4</div></div>
+          </div>
+
+          <div class="testr testh row middle">
+            <div class="col-4"><div class="testcol">col span 4</div></div>
+            <div class="col-4"><div class="testcol">col span 4</div></div>
+            <div class="col-4"><div class="testcol">col span 4</div></div>
+          </div>
+
+          <div class="testr testh row stretch">
+            <div class="col-4">
+              <div class="testcol">col span 4</div>
+            </div>
+            <div class="col-4"><div class="testcol">col span 4</div></div>
+            <div class="col-4"><div class="testcol">col span 4</div></div>
+          </div>
+
+          <div class="testr testh row baseline">
+            <div class="col-4"><div class="testcol">col span 4</div></div>
+            <div class="col-4"><div class="testcol">col span 4</div></div>
+            <div class="col-4"><div class="testcol">col span 4</div></div>
+          </div>
+
+          <div class="testr testh row centered">
+            <div class="col-4"><div class="testcol">col span 4</div></div>
+          </div>
+        </section>
       </div>
     </main>
     <script src="./core.js"></script>
