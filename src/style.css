@@ -324,7 +324,7 @@ label {
   line-height: 1;
 }
 
-input,
+input:not([type="range"]),
 select,
 textarea {
   padding: var(--size-s);
@@ -353,6 +353,108 @@ select,
 textarea {
   box-sizing: border-box;
   width: 100%;
+}
+
+input::placeholder,
+select::placeholder,
+textarea::placeholder {
+  color: var(--base-text-light);
+}
+
+/* Range
+label:has(> input[type="range"]) {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 15px;
+  min-height: 3.75em;
+  width: 100%;
+}
+*/
+
+input:focus[type="range"] {
+  box-shadow: none;
+  outline: none;
+}
+
+input[type="range"] {
+  width: 100%;
+  background-color: transparent;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+input[type="range"]::-moz-range-track {
+  background: var(--gray60);
+  border-radius: 1px;
+  width: 100%;
+  height: 2px;
+  cursor: pointer;
+}
+/* didn't work with comma */
+input[type="range"]::-webkit-slider-runnable-track {
+  background: var(--gray60);
+  border-radius: 1px;
+  width: 100%;
+  height: 2px;
+  cursor: pointer;
+}
+
+/* thumb */
+input[type="range"]::-webkit-slider-thumb {
+  margin-top: -7px;
+  width: 14px;
+  height: 14px;
+  background: var(--gray60);
+  border: 1px solid var(--gray50);
+  border-radius: 50%;
+  cursor: pointer;
+  -webkit-appearance: none;
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  background: var(--gray60);
+  border: 1px solid var(--gray50);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+input[type="range"]::-ms-fill-lower {
+  background: var(--gray80);
+  border: 1px solid var(--gray60);
+  border-radius: 2px;
+}
+
+input[type="range"]::-ms-fill-upper {
+  background: var(--gray60);
+  border: 1px solid var(--gray60);
+  border-radius: 2px;
+}
+
+input[type="range"]::-ms-thumb {
+  width: 14px;
+  height: 14px;
+  background: var(--gray60);
+  border: 1px solid var(--gray50);
+  border-radius: 50%;
+  cursor: pointer;
+  margin-top: 0px;
+  /*Needed to keep the Edge thumb centred*/
+}
+
+input[type="range"]:focus::-ms-fill-lower {
+  background: var(--gray60);
+}
+
+input[type="range"]:focus::-ms-fill-upper {
+  background: var(--gray80);
+}
+
+@supports (-ms-ime-align: auto) {
+  input[type="range"] {
+    margin: 0;
+  }
 }
 
 /* Checks & Radios */
@@ -397,6 +499,14 @@ input[type="radio"]:checked::after {
 
 input[type="radio"] {
   border-radius: 50%;
+}
+
+input:disabled,
+select:disabled,
+textarea:disabled {
+  border-color: var(--gray90);
+  color: var(--gray20);
+  background-color: var(--gray90);
 }
 
 /* button */

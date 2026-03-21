@@ -18,19 +18,11 @@
     <link rel="stylesheet" href="./timeline.css" />
     <link rel="stylesheet" href="./grid12.css" />
   </head>
-  <!--
-  Unstyled
-  Inline
-    bdo, cite, dnf, map, object, output, q, samp, script, tt, 
-  Block
-    <address>, <canvas>, <noscript>, <video>, <figure>, <figcaption>, <pre>
-  -->
-
   <body id="typography">
     <header id="root-header">
       <div class="grid">
         <h1 id="root-title">
-          <a href="#">Dungeons & Dragons</a>
+          <a href="#">Thefri</a>
         </h1>
 
         <button class="hamburger-menu" data-opens="main-navigation">
@@ -365,30 +357,142 @@
           <fieldset>
             <legend>Form Elements</legend>
             <!-- color -->
+            <label
+              >Color:
+              <input placeholder="#000000" type="color" />
+            </label>
             <!-- date -->
+            <label
+              >Date:
+              <input
+                max="2026-12-31"
+                min="2024-01-01"
+                placeholder="YYYY-MM-DD"
+                type="date"
+              />
+            </label>
             <!-- datetime-local -->
             <label
+              >DateTime Local:
+              <input
+                max="2026-12-31"
+                min="2024-01-01"
+                placeholder="YYYY-MM-DDTHH:MM"
+                type="datetime-local"
+              />
+            </label>
+            <label
               >Email:
-              <input autocomplete="email" type="email" />
+              <input
+                autocomplete="email"
+                placeholder="you@domain.com"
+                type="email"
+              />
             </label>
             <!-- month -->
-            <!-- number -->
-            <!-- month -->
+            <label
+              >Month:
+              <input placeholder="YYYY-MM" type="month" />
+            </label>
             <!-- number -->
             <label
-              >Password:
-              <input autocomplete="current-password" type="password" />
+              >Number:
+              <input max="100" min="0" placeholder="0" type="number" />
             </label>
-            <!-- range -->
+            <label
+              >Password:
+              <input
+                autocomplete="current-password"
+                placeholder="Enter password"
+                type="password"
+              />
+            </label>
+            <!-- range https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input/range -->
+
+            <label
+              >Range:
+              <input
+                max="100"
+                min="0"
+                placeholder=".01"
+                step="0.1"
+                type="range"
+              />
+            </label>
+            <!-- <label class="col-6"
+                >Marked Range:
+                <input
+                  list="markers"
+                  max="100"
+                  min="0"
+                  placeholder="0"
+                  step="1"
+                  type="range"
+                />
+                <datalist id="markers" style="display: flex">
+                  <option value="0" label="0"></option>
+                  <option value="10" label="10"></option>
+                  <option value="20" label="20"></option>
+                  <option value="30" label="30"></option>
+                  <option value="40" label="40"></option>
+                  <option value="50" label="50"></option>
+                  <option value="60" label="60"></option>
+                  <option value="70" label="70"></option>
+                  <option value="80" label="80"></option>
+                  <option value="90" label="90"></option>
+                  <option value="100" label="100"></option>
+                </datalist>
+              </label> -->
+
             <!-- search -->
+            <label
+              >Search:
+              <input placeholder="find something" type="search" />
+            </label>
             <!-- tel -->
+            <label
+              >Tel:
+              <input autocomplete="tel" placeholder="2125551212" type="tel" />
+            </label>
             <label
               >Text Input:
               <input type="text" placeholder="Enter text" />
             </label>
+            <label
+              >Disabled:
+              <input disabled type="text" value="Can't be edited" />
+            </label>
             <!-- time -->
+            <label
+              >Time:
+              <input
+                max="23:59"
+                min="00:00"
+                placeholder="12:00"
+                step="900"
+                type="time"
+              />
+            </label>
             <!-- url -->
+            <label
+              >URL:
+              <input
+                autocomplete="url"
+                placeholder="https://example.com"
+                type="url"
+              />
+            </label>
             <!-- week -->
+            <label
+              >Week:
+              <input
+                max="2026-12-31"
+                min="2026-01-01"
+                placeholder="YYYY-WW"
+                type="week"
+              />
+            </label>
+
             <label
               >Select:
               <select>
@@ -398,11 +502,27 @@
             </label>
 
             <label
+              >Disabled Select:
+              <select disabled>
+                <option>Option 1</option>
+                <option>Option 2</option>
+              </select>
+            </label>
+
+            <label
               >Textarea:
-              <textarea rows="4"></textarea>
+              <textarea rows="4" placeholder="Enter text"></textarea>
+            </label>
+
+            <label
+              >Textarea:
+              <textarea disabled rows="4" placeholder="Enter text"></textarea>
             </label>
 
             <label> <input type="checkbox" checked /> Checkbox </label>
+            <label>
+              <input checked disabled type="checkbox" />Disabled Checkbox
+            </label>
 
             <fieldset class="hstack">
               <legend>Select One</legend>
@@ -410,6 +530,7 @@
                 <input type="radio" name="radio" checked /> Radio 1
               </label>
               <label> <input type="radio" name="radio" />Radio 2 </label>
+              <label><input disabled type="radio" name="radio" />Radio 3</label>
             </fieldset>
 
             <div>
@@ -703,21 +824,6 @@
             </article>
           </div>
         </div>
-
-        <!-- MEDIA
-    <figure>
-      <img src="placeholder.jpg" alt="Placeholder image" />
-      <figcaption>Image caption</figcaption>
-    </figure>
-
-    <video controls width="320" height="240">
-      <source src="video.mp4" type="video/mp4" />
-    </video>
-
-    <audio controls>
-      <source src="audio.mp3" type="audio/mpeg" />
-    </audio>
-    -->
 
         <section id="grid12">
           <style>
