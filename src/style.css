@@ -13,6 +13,7 @@
  * 7. Layout: A utility class for horizontal stacking of elements using flexbox.
  * 8. Article: Styles for article elements, including header and time.
  * 9. Navigation: Styles for table of contents and root navigation header.
+ * 9. A. Pagination: Styles for pagination elements.
  * 10. Trays: Styles for hamburger menu and sliding trays for navigation.
  */
 
@@ -579,6 +580,7 @@ menu {
   padding-inline-start: 1.125em;
   margin-block-start: 0;
   margin-block-end: 0;
+  line-height: 1;
   list-style-type: none;
 }
 
@@ -620,6 +622,43 @@ main {
   position: relative;
   inset: var(--global-header-size) 0 0;
   margin: 0 var(--size-m);
+}
+
+/* 9. A. Pagination */
+.pagination {
+  margin: var(--size-m);
+  font-size: var(--test-size-s);
+}
+
+.button-row {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.button {
+  text-decoration: none;
+  appearance: none;
+  padding: 0.35em 0.5em 0.25em;
+
+  &:not(:disabled) {
+    cursor: pointer;
+  }
+
+  &.solid {
+    color: #fff;
+    background-color: #000;
+  }
+
+  &.outline {
+    border: 1px solid #000;
+  }
+
+  &[aria-current="page"] {
+    border-color: var(--link);
+    color: var(--gray100);
+    background-color: var(--link);
+  }
 }
 
 /* 10. Trays */
