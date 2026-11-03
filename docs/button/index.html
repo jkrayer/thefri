@@ -1,0 +1,871 @@
+<!doctype html>
+<html lang="en-US" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="" />
+    <title>Thefri | Button</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../style.css" />
+    <style>
+      .button {
+        --global-background: var(--gray100);
+        --primary: #0085bf;
+        --primaryDark: color-mix(in srgb, var(--primary) 100%, #000 25%);
+        --primaryDisabled: color-mix(in srgb, var(--primary) 100%, #fff 50%);
+        --secondary: #ff8a3d;
+        --secondaryDark: color-mix(in srgb, var(--secondary) 100%, #000 25%);
+        --secondaryDisabled: color-mix(
+          in srgb,
+          var(--secondary) 100%,
+          #fff 50%
+        );
+        --tertiary: #6a4ccf;
+        --tertiaryDark: color-mix(in srgb, var(--tertiary) 100%, #000 25%);
+        --tertiaryDisabled: color-mix(in srgb, var(--tertiary) 100%, #fff 50%);
+        --muted: var(--gray90);
+        --mutedDark: color-mix(in srgb, var(--gray90) 100%, #000 25%);
+        --danger: #dc3545;
+        --dangerDark: color-mix(in srgb, var(--danger) 100%, #000 25%);
+        --dangerDisabled: color-mix(in srgb, var(--danger) 100%, #fff 50%);
+        --success: #28a745;
+        --successDark: color-mix(in srgb, var(--success) 100%, #000 25%);
+        --successDisabled: color-mix(in srgb, var(--success) 100%, #fff 50%);
+        --warning: #ffc107;
+        --warningDark: color-mix(in srgb, var(--warning) 100%, #000 25%);
+        --warningDisabled: color-mix(in srgb, var(--warning) 100%, #fff 50%);
+        --info: #17a2b8;
+        --infoDark: color-mix(in srgb, var(--info) 100%, #000 25%);
+        --infoDisabled: color-mix(in srgb, var(--info) 100%, #fff 50%);
+
+        box-sizing: border-box;
+        display: inline-block;
+        overflow: hidden;
+        padding: 0.5em 1em;
+        border: 1px solid transparent;
+        border-radius: 0.125em;
+        font-size: 1em;
+        line-height: 1;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        background-color: var(--muted);
+        appearance: none;
+        -webkit-appearance: none;
+        transition:
+          background-color 0.25s ease-in-out,
+          color 0.25s ease-in-out,
+          filter 0.25s ease-in-out,
+          width 0.25s ease-in-out;
+        cursor: pointer;
+        vertical-align: middle;
+
+        --radius-xs: 0.125em;
+        --radius-sm: 0.25em;
+        --radius-md: 0.375em;
+        --radius-lg: 0.5em;
+
+        &:hover {
+          background: var(--mutedDark);
+        }
+
+        &:disabled {
+          color: var(--gray40);
+          cursor: not-allowed;
+          pointer-events: none;
+          background-color: rgb(237, 237, 237);
+        }
+
+        &[data-loading] {
+          cursor: wait;
+          pointer-events: none;
+
+          &:before {
+            content: "";
+            position: relative;
+            left: -7px;
+            top: 2px;
+            display: inline-block;
+            width: 0.5625em;
+            height: 0.5625em;
+            border: 2px solid var(--base-text-color);
+            border-top-color: transparent;
+            border-radius: 50%;
+            animation: spin 1.5s linear infinite;
+            opacity: 0.5;
+          }
+        }
+
+        &.primary[data-loading]:before,
+        &.secondary[data-loading]:before,
+        &.tertiary[data-loading]:before,
+        &.danger[data-loading]:before,
+        &.success[data-loading]:before,
+        &.warning[data-loading]:before,
+        &.info[data-loading]:before {
+          border-right-color: var(--gray100);
+          border-bottom-color: var(--gray100);
+          border-left-color: var(--gray100);
+        }
+
+        &.primary-ko[data-loading]:before,
+        &.primary-text[data-loading]:before {
+          border-right-color: var(--primary);
+          border-bottom-color: var(--primary);
+          border-left-color: var(--primary);
+        }
+
+        &.secondary-ko[data-loading]:before,
+        &.secondary-text[data-loading]:before {
+          border-right-color: var(--secondary);
+          border-bottom-color: var(--secondary);
+          border-left-color: var(--secondary);
+        }
+
+        &.tertiary-ko[data-loading]:before,
+        &.tertiary-text[data-loading]:before {
+          border-right-color: var(--tertiary);
+          border-bottom-color: var(--tertiary);
+          border-left-color: var(--tertiary);
+        }
+
+        &.danger-ko[data-loading]:before,
+        &.danger-text[data-loading]:before {
+          border-right-color: var(--danger);
+          border-bottom-color: var(--danger);
+          border-left-color: var(--danger);
+        }
+
+        &.success-ko[data-loading]:before,
+        &.success-text[data-loading]:before {
+          border-right-color: var(--success);
+          border-bottom-color: var(--success);
+          border-left-color: var(--success);
+        }
+
+        &.warning-ko[data-loading]:before,
+        &.warning-text[data-loading]:before {
+          border-right-color: var(--warning);
+          border-bottom-color: var(--warning);
+          border-left-color: var(--warning);
+        }
+
+        &.info-ko[data-loading]:before,
+        &.info-text[data-loading]:before {
+          border-right-color: var(--info);
+          border-bottom-color: var(--info);
+          border-left-color: var(--info);
+        }
+
+        &.ko,
+        &.primary-ko,
+        &.secondary-ko,
+        &.tertiary-ko,
+        &.danger-ko,
+        &.success-ko,
+        &.warning-ko,
+        &.info-ko,
+        &.text,
+        &.primary-text,
+        &.secondary-text,
+        &.tertiary-text,
+        &.danger-text,
+        &.success-text,
+        &.warning-text,
+        &.info-text {
+          background-color: var(--global-background);
+        }
+
+        &.ko {
+          border-color: var(--gray30);
+          color: var(--gray30);
+
+          &:hover {
+            border-color: var(--gray00);
+            color: var(--gray00);
+          }
+        }
+
+        &.text {
+          color: var(--gray20);
+
+          &:hover {
+            color: var(--gray00);
+            text-decoration: underline;
+          }
+        }
+
+        /* Color Variants */
+        &.primary {
+          background-color: var(--primary);
+          color: var(--gray100);
+
+          &:hover {
+            background: color-mix(in srgb, var(--primary) 100%, #000 15%);
+          }
+
+          &:disabled {
+            background-color: var(--primaryDisabled);
+          }
+        }
+
+        &.primary-ko {
+          border-color: var(--primary);
+          color: var(--primary);
+
+          &:hover {
+            border-color: var(--primaryDark);
+            color: var(--primaryDark);
+            background-color: var(--global-background);
+          }
+
+          &:disabled {
+            border-color: var(--primaryDisabled);
+            color: var(--primaryDisabled);
+          }
+        }
+
+        &.primary-text {
+          color: var(--primary);
+
+          &:hover {
+            color: var(--primaryDark);
+            text-decoration: underline;
+          }
+
+          &:disabled {
+            color: var(--primaryDisabled);
+          }
+        }
+
+        &.secondary {
+          background-color: var(--secondary);
+          color: var(--gray100);
+
+          &:hover {
+            background: color-mix(in srgb, var(--secondary) 100%, #000 15%);
+          }
+
+          &:disabled {
+            background-color: var(--secondaryDisabled);
+          }
+        }
+
+        &.secondary-ko {
+          border-color: var(--secondary);
+          color: var(--secondary);
+
+          &:hover {
+            border-color: color-mix(in srgb, var(--secondary) 100%, #000 15%);
+            color: color-mix(in srgb, var(--secondary) 100%, #000 15%);
+            background-color: var(--global-background);
+          }
+
+          &:disabled {
+            border-color: var(--secondaryDisabled);
+            color: var(--secondaryDisabled);
+          }
+        }
+
+        &.secondary-text {
+          color: var(--secondary);
+
+          &:hover {
+            color: var(--secondaryDark);
+            text-decoration: underline;
+          }
+
+          &:disabled {
+            color: var(--secondaryDisabled);
+          }
+        }
+
+        &.tertiary {
+          background-color: var(--tertiary);
+          color: var(--gray100);
+
+          &:hover {
+            background: color-mix(in srgb, var(--tertiary) 100%, #000 15%);
+
+            &:disabled {
+              background-color: var(--tertiaryDisabled);
+            }
+          }
+        }
+
+        &.tertiary-ko {
+          border-color: var(--tertiary);
+          color: var(--tertiary);
+
+          &:hover {
+            border-color: var(--tertiaryDark);
+            color: var(--tertiaryDark);
+            background-color: var(--global-background);
+          }
+
+          &:disabled {
+            border-color: var(--tertiaryDisabled);
+            color: var(--tertiaryDisabled);
+          }
+        }
+
+        &.tertiary-text {
+          color: var(--tertiary);
+
+          &:hover {
+            color: var(--tertiaryDark);
+            text-decoration: underline;
+          }
+          &:disabled {
+            color: var(--tertiaryDisabled);
+          }
+        }
+
+        &.danger {
+          background-color: var(--danger);
+          color: var(--gray100);
+
+          &:hover {
+            background: color-mix(in srgb, var(--danger) 100%, #000 15%);
+          }
+
+          &:disabled {
+            background-color: var(--dangerDisabled);
+          }
+        }
+
+        &.danger-ko {
+          border-color: var(--danger);
+          color: var(--danger);
+
+          &:hover {
+            border-color: var(--dangerDark);
+            color: var(--dangerDark);
+            background-color: var(--global-background);
+          }
+
+          &:disabled {
+            border-color: var(--dangerDisabled);
+            color: var(--dangerDisabled);
+          }
+        }
+
+        &.danger-text {
+          color: var(--danger);
+
+          &:hover {
+            color: var(--dangerDark);
+            text-decoration: underline;
+          }
+
+          &:disabled {
+            color: var(--dangerDisabled);
+          }
+        }
+
+        &.success {
+          background-color: var(--success);
+          color: var(--gray100);
+
+          &:hover {
+            background: color-mix(in srgb, var(--success) 100%, #000 15%);
+          }
+
+          &:disabled {
+            background-color: var(--successDisabled);
+          }
+        }
+
+        &.success-ko {
+          border-color: var(--success);
+          color: var(--success);
+
+          &:hover {
+            border-color: var(--successDark);
+            color: var(--successDark);
+            background-color: var(--global-background);
+          }
+
+          &:disabled {
+            border-color: var(--successDisabled);
+            color: var(--successDisabled);
+          }
+        }
+
+        &.success-text {
+          color: var(--success);
+
+          &:hover {
+            color: var(--successDark);
+            text-decoration: underline;
+          }
+          &:disabled {
+            color: var(--successDisabled);
+          }
+        }
+
+        &.warning {
+          background-color: var(--warning);
+          /* color: var(--gray100); */
+
+          &:hover {
+            background: color-mix(in srgb, var(--warning) 100%, #000 15%);
+          }
+          &:disabled {
+            background-color: var(--warningDisabled);
+          }
+        }
+
+        &.warning-ko {
+          border-color: var(--warning);
+          color: var(--warning);
+
+          &:hover {
+            border-color: var(--warningDark);
+            color: var(--warningDark);
+            background-color: var(--global-background);
+          }
+
+          &:disabled {
+            border-color: var(--warningDisabled);
+            color: var(--warningDisabled);
+          }
+        }
+
+        &.warning-text {
+          color: var(--warning);
+
+          &:hover {
+            color: var(--warningDark);
+            text-decoration: underline;
+          }
+          &:disabled {
+            color: var(--warningDisabled);
+          }
+        }
+
+        &.info {
+          background-color: var(--info);
+          color: var(--gray100);
+
+          &:hover {
+            background: color-mix(in srgb, var(--info) 100%, #000 15%);
+          }
+          &:disabled {
+            background-color: var(--infoDisabled);
+          }
+        }
+
+        &.info-ko {
+          border-color: var(--info);
+          color: var(--info);
+
+          &:hover {
+            border-color: var(--infoDark);
+            color: var(--infoDark);
+            background-color: var(--global-background);
+          }
+
+          &:disabled {
+            border-color: var(--infoDisabled);
+            color: var(--infoDisabled);
+          }
+        }
+
+        &.info-text {
+          color: var(--info);
+
+          &:hover {
+            color: var(--infoDark);
+            text-decoration: underline;
+          }
+
+          &:disabled {
+            color: var(--infoDisabled);
+          }
+        }
+
+        /* Size Variants */
+        &.x-small {
+          padding: 0.25em;
+          font-size: 0.75em;
+        }
+
+        &.small {
+          padding: 0.25em 0.5em;
+          font-size: 0.875em;
+        }
+
+        &.large {
+          padding: 0.625em 1.25em;
+          font-size: 1.25em;
+        }
+      }
+
+      @keyframes spin {
+        from {
+          transform: rotate(0deg);
+        }
+
+        to {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Button</h1>
+
+      <p>
+        As you can see, Thefri has a lot of buttons. Why? Mostly to illustrate
+        how different styles and states can be composed in a complex system.
+        Most actual use cases won't require this many variations and should use
+        a subset of these.
+      </p>
+
+      <div>
+        <button class="button" type="button">Un-Styled</button>
+      </div>
+
+      <div style="display: flex; gap: 1rem">
+        <div
+          style="
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            align-items: center;
+          "
+        >
+          <h2>Colors</h2>
+          <button class="button" type="button">Un-Styled</button>
+          <button class="button primary" type="button">Primary</button>
+          <button class="button secondary" type="button">Secondary</button>
+          <button class="button tertiary" type="button">Tertiary</button>
+          <button class="button danger" type="button">Danger</button>
+          <button class="button success" type="button">Success</button>
+          <button class="button warning" type="button">Warning</button>
+          <button class="button info" type="button">Info</button>
+        </div>
+
+        <div
+          style="
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            align-items: center;
+          "
+        >
+          <h2>Knock-Out</h2>
+          <button class="button ko" type="button">Un-Styled</button>
+          <button class="button primary-ko" type="button">Primary</button>
+          <button class="button secondary-ko" type="button">Secondary</button>
+          <button class="button tertiary-ko" type="button">Tertiary</button>
+          <button class="button danger-ko" type="button">Danger</button>
+          <button class="button success-ko" type="button">Success</button>
+          <button class="button warning-ko" type="button">Warning</button>
+          <button class="button info-ko" type="button">Info</button>
+        </div>
+
+        <div
+          style="
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            align-items: center;
+          "
+        >
+          <h2>Text</h2>
+          <button class="button text" type="button">Un-Styled</button>
+          <button class="button primary-text" type="button">Primary</button>
+          <button class="button secondary-text" type="button">Secondary</button>
+          <button class="button tertiary-text" type="button">Tertiary</button>
+          <button class="button danger-text" type="button">Danger</button>
+          <button class="button success-text" type="button">Success</button>
+          <button class="button warning-text" type="button">Warning</button>
+          <button class="button info-text" type="button">Info</button>
+        </div>
+      </div>
+
+      <h2>Sizes</h2>
+
+      <div
+        style="
+          display: flex;
+          gap: 1rem;
+          align-items: center;
+          margin-bottom: 1rem;
+        "
+      >
+        <div
+          style="
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            align-items: center;
+            margin-bottom: 1rem;
+          "
+        >
+          <button class="button x-small" type="button">Un-Styled</button>
+          <button class="button small" type="button">Un-Styled</button>
+          <button class="button" type="button">Un-Styled</button>
+          <button class="button large" type="button">Un-Styled</button>
+        </div>
+
+        <div
+          style="
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            align-items: center;
+            margin-bottom: 1rem;
+          "
+        >
+          <button class="button x-small primary-ko" type="button">
+            Knock-Out
+          </button>
+          <button class="button small primary-ko" type="button">
+            Knock-Out
+          </button>
+          <button class="button primary-ko" type="button">Knock-Out</button>
+          <button class="button large primary-ko" type="button">
+            Knock-Out
+          </button>
+        </div>
+
+        <div
+          style="
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            align-items: center;
+            margin-bottom: 1rem;
+          "
+        >
+          <button class="button x-small secondary-text" type="button">
+            Secondary Text
+          </button>
+          <button class="button small secondary-text" type="button">
+            Secondary Text
+          </button>
+          <button class="button secondary-text" type="button">
+            Secondary Text
+          </button>
+          <button class="button large secondary-text" type="button">
+            Secondary Text
+          </button>
+        </div>
+      </div>
+      <!-- 
+      <h2>Icons</h2>
+
+      <div>
+        <button class="button" type="button">Un-Styled</button>
+        <button class="button" type="button">Primary</button>
+        <button class="button" type="button">Secondary</button>
+        <button class="button" type="button">Tertiary</button>
+        <button class="button" type="button">Muted</button>
+        <button class="button" type="button">Danger</button>
+        <button class="button" type="button">Success</button>
+        <button class="button" type="button">Warning</button>
+        <button class="button" type="button">Info</button>
+      </div>
+      -->
+      <h2>States</h2>
+
+      <h3>Disabled</h3>
+
+      <div
+        style="display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 1rem"
+      >
+        <div
+          style="
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            align-items: center;
+          "
+        >
+          <button class="button" disabled type="button">Un-Styled</button>
+          <button class="button primary" disabled type="button">Primary</button>
+          <button class="button secondary" disabled type="button">
+            Secondary
+          </button>
+          <button class="button tertiary" disabled type="button">
+            Tertiary
+          </button>
+          <button class="button danger" disabled type="button">Danger</button>
+          <button class="button success" disabled type="button">Success</button>
+          <button class="button warning" disabled type="button">Warning</button>
+          <button class="button info" disabled type="button">Info</button>
+        </div>
+
+        <div
+          style="
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            align-items: center;
+          "
+        >
+          <button class="button ko" disabled type="button">Un-Styled</button>
+          <button class="button primary-ko" disabled type="button">
+            Primary
+          </button>
+          <button class="button secondary-ko" disabled type="button">
+            Secondary
+          </button>
+          <button class="button tertiary-ko" disabled type="button">
+            Tertiary
+          </button>
+          <button class="button danger-ko" disabled type="button">
+            Danger
+          </button>
+          <button class="button success-ko" disabled type="button">
+            Success
+          </button>
+          <button class="button warning-ko" disabled type="button">
+            Warning
+          </button>
+          <button class="button info-ko" disabled type="button">Info</button>
+        </div>
+
+        <div
+          style="
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            align-items: center;
+          "
+        >
+          <button class="button text" disabled type="button">Un-Styled</button>
+          <button class="button primary-text" disabled type="button">
+            Primary
+          </button>
+          <button class="button secondary-text" disabled type="button">
+            Secondary
+          </button>
+          <button class="button tertiary-text" disabled type="button">
+            Tertiary
+          </button>
+          <button class="button danger-text" disabled type="button">
+            Danger
+          </button>
+          <button class="button success-text" disabled type="button">
+            Success
+          </button>
+          <button class="button warning-text" disabled type="button">
+            Warning
+          </button>
+          <button class="button info-text" disabled type="button">Info</button>
+        </div>
+      </div>
+
+      <h3>Loading</h3>
+
+      <div style="display: flex; gap: 2rem; width: fit-content">
+        <div
+          style="
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            align-items: center;
+          "
+        >
+          <button class="button" data-loading type="button">Un-Styled</button>
+          <button class="button primary" data-loading type="button">
+            Primary
+          </button>
+          <button class="button secondary" data-loading type="button">
+            Secondary
+          </button>
+          <button class="button tertiary" data-loading type="button">
+            Tertiary
+          </button>
+          <button class="button danger" data-loading type="button">
+            Danger
+          </button>
+          <button class="button success" data-loading type="button">
+            Success
+          </button>
+          <button class="button warning" data-loading type="button">
+            Warning
+          </button>
+          <button class="button info" data-loading type="button">Info</button>
+        </div>
+
+        <div
+          style="
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            align-items: center;
+          "
+        >
+          <button class="button ko" data-loading type="button">
+            Un-Styled
+          </button>
+          <button class="button primary-ko" data-loading type="button">
+            Primary
+          </button>
+          <button class="button secondary-ko" data-loading type="button">
+            Secondary
+          </button>
+          <button class="button tertiary-ko" data-loading type="button">
+            Tertiary
+          </button>
+          <button class="button danger-ko" data-loading type="button">
+            Danger
+          </button>
+          <button class="button success-ko" data-loading type="button">
+            Success
+          </button>
+          <button class="button warning-ko" data-loading type="button">
+            Warning
+          </button>
+          <button class="button info-ko" data-loading type="button">
+            Info
+          </button>
+        </div>
+
+        <div
+          style="
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            align-items: center;
+          "
+        >
+          <button class="button text" data-loading type="button">
+            Un-Styled
+          </button>
+          <button class="button primary-text" data-loading type="button">
+            Primary
+          </button>
+          <button class="button secondary-text" data-loading type="button">
+            Secondary
+          </button>
+          <button class="button tertiary-text" data-loading type="button">
+            Tertiary
+          </button>
+          <button class="button danger-text" data-loading type="button">
+            Danger
+          </button>
+          <button class="button success-text" data-loading type="button">
+            Success
+          </button>
+          <button class="button warning-text" data-loading type="button">
+            Warning
+          </button>
+          <button class="button info-text" data-loading type="button">
+            Info
+          </button>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
