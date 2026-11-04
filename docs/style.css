@@ -15,6 +15,7 @@
  * 9. Navigation: Styles for table of contents and root navigation header.
  * 9. A. Pagination: Styles for pagination elements.
  * 10. Trays: Styles for hamburger menu and sliding trays for navigation.
+ * 11. Animations: Define keyframe animations and related styles.
  */
 
 /* 1. CSS Variables */
@@ -786,3 +787,14 @@ main {
 */
 
 /* Add this to its own repo and start documentation link on jameskrayer.com */
+
+/* 11. Animations */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}

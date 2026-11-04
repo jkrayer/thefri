@@ -44,7 +44,9 @@
         --infoDisabled: color-mix(in srgb, var(--info) 100%, #fff 50%);
 
         box-sizing: border-box;
-        display: inline-block;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
         overflow: hidden;
         padding: 0.5em 1em;
         border: 1px solid transparent;
@@ -489,30 +491,56 @@
           }
         }
 
+        & > .icon {
+          width: 1em;
+          height: 1em;
+
+          &:first-child {
+            margin-right: 0.25em;
+          }
+
+          &:last-child {
+            margin-left: 0.25em;
+          }
+        }
+
+        &:has(> .icon:first-child) {
+          padding-left: 0.375em;
+        }
+
+        &:has(> .icon:last-child) {
+          padding-right: 0.375em;
+        }
+
         /* Size Variants */
         &.x-small {
           padding: 0.25em;
           font-size: 0.75em;
+
+          & > .icon {
+            width: 0.75em;
+            height: 0.75em;
+          }
         }
 
         &.small {
           padding: 0.25em 0.5em;
           font-size: 0.875em;
+
+          & > .icon {
+            width: 0.875em;
+            height: 0.875em;
+          }
         }
 
         &.large {
           padding: 0.625em 1.25em;
           font-size: 1.25em;
-        }
-      }
 
-      @keyframes spin {
-        from {
-          transform: rotate(0deg);
-        }
-
-        to {
-          transform: rotate(360deg);
+          & > .icon {
+            width: 1.25em;
+            height: 1.25em;
+          }
         }
       }
     </style>
@@ -526,6 +554,13 @@
         how different styles and states can be composed in a complex system.
         Most actual use cases won't require this many variations and should use
         a subset of these.
+      </p>
+
+      <p>
+        Why a subset? As of this commit, the button CSS numbers 529 lines. While
+        it certainly hasn't been optimized it is worth asking if any given
+        application needs to dedicate this amount of space (bytes) just to
+        buttons. The answer may be yes, but I suspect your mileage may vary.
       </p>
 
       <div>
@@ -866,6 +901,334 @@
           </button>
         </div>
       </div>
+
+      <h2>Icons</h2>
+
+      <h3>Before</h3>
+      <button class="button primary" type="button">
+        <svg
+          aria-hidden="true"
+          class="icon"
+          data-icon="search"
+          role="img"
+          viewBox="0 0 256 256"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <circle
+            cx="112"
+            cy="112"
+            r="72"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="24"
+          />
+          <line
+            x1="162"
+            y1="162"
+            x2="224"
+            y2="224"
+            stroke="currentColor"
+            stroke-width="24"
+            stroke-linecap="round"
+          />
+        </svg>
+        <span>Primary</span>
+      </button>
+      <button class="button primary-ko" type="button">
+        <svg
+          aria-hidden="true"
+          class="icon"
+          data-icon="search"
+          role="img"
+          viewBox="0 0 256 256"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <circle
+            cx="112"
+            cy="112"
+            r="72"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="24"
+          />
+          <line
+            x1="162"
+            y1="162"
+            x2="224"
+            y2="224"
+            stroke="currentColor"
+            stroke-width="24"
+            stroke-linecap="round"
+          />
+        </svg>
+        <span>Primary</span>
+      </button>
+      <button class="button primary-text" type="button">
+        <svg
+          aria-hidden="true"
+          class="icon"
+          data-icon="search"
+          role="img"
+          viewBox="0 0 256 256"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <circle
+            cx="112"
+            cy="112"
+            r="72"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="24"
+          />
+          <line
+            x1="162"
+            y1="162"
+            x2="224"
+            y2="224"
+            stroke="currentColor"
+            stroke-width="24"
+            stroke-linecap="round"
+          />
+        </svg>
+        <span>Primary</span>
+
+        <button class="button primary" disabled type="button">
+          <svg
+            aria-hidden="true"
+            class="icon"
+            data-icon="search"
+            role="img"
+            viewBox="0 0 256 256"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <circle
+              cx="112"
+              cy="112"
+              r="72"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="24"
+            />
+            <line
+              x1="162"
+              y1="162"
+              x2="224"
+              y2="224"
+              stroke="currentColor"
+              stroke-width="24"
+              stroke-linecap="round"
+            />
+          </svg>
+          <span>Primary</span>
+        </button>
+      </button>
+
+      <h3>After</h3>
+      <button class="button primary" type="button">
+        Primary
+        <svg
+          aria-hidden="true"
+          class="icon"
+          data-icon="search"
+          role="img"
+          viewBox="0 0 256 256"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <circle
+            cx="112"
+            cy="112"
+            r="72"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="24"
+          />
+          <line
+            x1="162"
+            y1="162"
+            x2="224"
+            y2="224"
+            stroke="currentColor"
+            stroke-width="24"
+            stroke-linecap="round"
+          />
+        </svg>
+      </button>
+      <button class="button primary-ko" type="button">
+        <span>Primary</span>
+        <svg
+          aria-hidden="true"
+          class="icon"
+          data-icon="search"
+          role="img"
+          viewBox="0 0 256 256"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <circle
+            cx="112"
+            cy="112"
+            r="72"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="24"
+          />
+          <line
+            x1="162"
+            y1="162"
+            x2="224"
+            y2="224"
+            stroke="currentColor"
+            stroke-width="24"
+            stroke-linecap="round"
+          />
+        </svg>
+      </button>
+      <button class="button primary-text" type="button">
+        <span>Primary</span>
+        <svg
+          aria-hidden="true"
+          class="icon"
+          data-icon="search"
+          role="img"
+          viewBox="0 0 256 256"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <circle
+            cx="112"
+            cy="112"
+            r="72"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="24"
+          />
+          <line
+            x1="162"
+            y1="162"
+            x2="224"
+            y2="224"
+            stroke="currentColor"
+            stroke-width="24"
+            stroke-linecap="round"
+          />
+        </svg>
+      </button>
+
+      <h3>Sizes</h3>
+      <button class="button x-small primary-ko" type="button">
+        <svg
+          aria-hidden="true"
+          class="icon"
+          data-icon="search"
+          role="img"
+          viewBox="0 0 256 256"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <circle
+            cx="112"
+            cy="112"
+            r="72"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="24"
+          />
+          <line
+            x1="162"
+            y1="162"
+            x2="224"
+            y2="224"
+            stroke="currentColor"
+            stroke-width="24"
+            stroke-linecap="round"
+          />
+        </svg>
+        <span>Knock-Out</span>
+      </button>
+      <button class="button small primary-ko" type="button">
+        <svg
+          aria-hidden="true"
+          class="icon"
+          data-icon="search"
+          role="img"
+          viewBox="0 0 256 256"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <circle
+            cx="112"
+            cy="112"
+            r="72"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="24"
+          />
+          <line
+            x1="162"
+            y1="162"
+            x2="224"
+            y2="224"
+            stroke="currentColor"
+            stroke-width="24"
+            stroke-linecap="round"
+          />
+        </svg>
+        <span>Knock-Out</span>
+      </button>
+      <button class="button primary-ko" type="button">
+        <svg
+          aria-hidden="true"
+          class="icon"
+          data-icon="search"
+          role="img"
+          viewBox="0 0 256 256"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <circle
+            cx="112"
+            cy="112"
+            r="72"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="24"
+          />
+          <line
+            x1="162"
+            y1="162"
+            x2="224"
+            y2="224"
+            stroke="currentColor"
+            stroke-width="24"
+            stroke-linecap="round"
+          />
+        </svg>
+        <span>Knock-Out</span>
+      </button>
+      <button class="button large primary-ko" type="button">
+        <svg
+          aria-hidden="true"
+          class="icon"
+          data-icon="search"
+          role="img"
+          viewBox="0 0 256 256"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <circle
+            cx="112"
+            cy="112"
+            r="72"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="24"
+          />
+          <line
+            x1="162"
+            y1="162"
+            x2="224"
+            y2="224"
+            stroke="currentColor"
+            stroke-width="24"
+            stroke-linecap="round"
+          />
+        </svg>
+        <span>Knock-Out</span>
+      </button>
     </main>
   </body>
 </html>
