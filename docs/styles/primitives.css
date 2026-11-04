@@ -116,6 +116,9 @@
   --tertiaryDark: color-mix(in srgb, var(--tertiary) 100%, #000 25%);
   --tertiaryDisabled: color-mix(in srgb, var(--tertiary) 100%, #fff 50%);
 
+  --muted: var(--neutral90);
+  --mutedDark: color-mix(in srgb, var(--neutral90) 100%, #000 25%);
+
   --danger: var(--color-danger);
   --dangerDark: color-mix(in srgb, var(--danger) 100%, #000 25%);
   --dangerDisabled: color-mix(in srgb, var(--danger) 100%, #fff 50%);
