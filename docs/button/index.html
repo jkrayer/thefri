@@ -11,38 +11,10 @@
       href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="../styles/primitives.css" />
     <link rel="stylesheet" href="../style.css" />
     <style>
       .button {
-        --global-background: var(--gray100);
-        --primary: #0085bf;
-        --primaryDark: color-mix(in srgb, var(--primary) 100%, #000 25%);
-        --primaryDisabled: color-mix(in srgb, var(--primary) 100%, #fff 50%);
-        --secondary: #ff8a3d;
-        --secondaryDark: color-mix(in srgb, var(--secondary) 100%, #000 25%);
-        --secondaryDisabled: color-mix(
-          in srgb,
-          var(--secondary) 100%,
-          #fff 50%
-        );
-        --tertiary: #6a4ccf;
-        --tertiaryDark: color-mix(in srgb, var(--tertiary) 100%, #000 25%);
-        --tertiaryDisabled: color-mix(in srgb, var(--tertiary) 100%, #fff 50%);
-        --muted: var(--gray90);
-        --mutedDark: color-mix(in srgb, var(--gray90) 100%, #000 25%);
-        --danger: #dc3545;
-        --dangerDark: color-mix(in srgb, var(--danger) 100%, #000 25%);
-        --dangerDisabled: color-mix(in srgb, var(--danger) 100%, #fff 50%);
-        --success: #28a745;
-        --successDark: color-mix(in srgb, var(--success) 100%, #000 25%);
-        --successDisabled: color-mix(in srgb, var(--success) 100%, #fff 50%);
-        --warning: #ffc107;
-        --warningDark: color-mix(in srgb, var(--warning) 100%, #000 25%);
-        --warningDisabled: color-mix(in srgb, var(--warning) 100%, #fff 50%);
-        --info: #17a2b8;
-        --infoDark: color-mix(in srgb, var(--info) 100%, #000 25%);
-        --infoDisabled: color-mix(in srgb, var(--info) 100%, #fff 50%);
-
         box-sizing: border-box;
         display: inline-flex;
         align-items: center;
@@ -66,17 +38,12 @@
         cursor: pointer;
         vertical-align: middle;
 
-        --radius-xs: 0.125em;
-        --radius-sm: 0.25em;
-        --radius-md: 0.375em;
-        --radius-lg: 0.5em;
-
         &:hover {
           background: var(--mutedDark);
         }
 
         &:disabled {
-          color: var(--gray40);
+          color: var(--neutral40);
           cursor: not-allowed;
           pointer-events: none;
           background-color: rgb(237, 237, 237);
@@ -109,9 +76,9 @@
         &.success[data-loading]:before,
         &.warning[data-loading]:before,
         &.info[data-loading]:before {
-          border-right-color: var(--gray100);
-          border-bottom-color: var(--gray100);
-          border-left-color: var(--gray100);
+          border-right-color: var(--neutral100);
+          border-bottom-color: var(--neutral100);
+          border-left-color: var(--neutral100);
         }
 
         &.primary-ko[data-loading]:before,
@@ -183,20 +150,20 @@
         }
 
         &.ko {
-          border-color: var(--gray30);
-          color: var(--gray30);
+          border-color: var(--neutral30);
+          color: var(--neutral30);
 
           &:hover {
-            border-color: var(--gray00);
-            color: var(--gray00);
+            border-color: var(--neutral00);
+            color: var(--neutral00);
           }
         }
 
         &.text {
-          color: var(--gray20);
+          color: var(--neutral20);
 
           &:hover {
-            color: var(--gray00);
+            color: var(--neutral00);
             text-decoration: underline;
           }
         }
@@ -204,7 +171,7 @@
         /* Color Variants */
         &.primary {
           background-color: var(--primary);
-          color: var(--gray100);
+          color: var(--neutral100);
 
           &:hover {
             background: color-mix(in srgb, var(--primary) 100%, #000 15%);
@@ -246,7 +213,7 @@
 
         &.secondary {
           background-color: var(--secondary);
-          color: var(--gray100);
+          color: var(--neutral100);
 
           &:hover {
             background: color-mix(in srgb, var(--secondary) 100%, #000 15%);
@@ -288,7 +255,7 @@
 
         &.tertiary {
           background-color: var(--tertiary);
-          color: var(--gray100);
+          color: var(--neutral100);
 
           &:hover {
             background: color-mix(in srgb, var(--tertiary) 100%, #000 15%);
@@ -329,7 +296,7 @@
 
         &.danger {
           background-color: var(--danger);
-          color: var(--gray100);
+          color: var(--neutral100);
 
           &:hover {
             background: color-mix(in srgb, var(--danger) 100%, #000 15%);
@@ -371,7 +338,7 @@
 
         &.success {
           background-color: var(--success);
-          color: var(--gray100);
+          color: var(--neutral100);
 
           &:hover {
             background: color-mix(in srgb, var(--success) 100%, #000 15%);
@@ -412,7 +379,7 @@
 
         &.warning {
           background-color: var(--warning);
-          /* color: var(--gray100); */
+          /* color: var(--neutral100); */
 
           &:hover {
             background: color-mix(in srgb, var(--warning) 100%, #000 15%);
@@ -452,7 +419,7 @@
 
         &.info {
           background-color: var(--info);
-          color: var(--gray100);
+          color: var(--neutral100);
 
           &:hover {
             background: color-mix(in srgb, var(--info) 100%, #000 15%);
@@ -547,7 +514,10 @@
   </head>
   <body>
     <main>
-      <h1>Button</h1>
+      <header>
+        <h1>Button</h1>
+        <time datetime="2026-11-03">November 3, 2026</time>
+      </header>
 
       <p>
         As you can see, Thefri has a lot of buttons. Why? Mostly to illustrate

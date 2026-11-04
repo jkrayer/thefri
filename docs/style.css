@@ -20,60 +20,23 @@
 
 /* 1. CSS Variables */
 :root {
-  --font-family-sans-serif: "Jost", sans-serif;
-  /* https://typescale.com/ 1.067 Minor Second */
-  --base-font-size: 100%;
-  --text-size-xs: 0.878rem;
-  --text-size-s: 0.937rem;
-  --text-size-p: 1rem;
-  --text-size-h6: 1.067rem;
-  --text-size-h5: 1.138rem;
-  --text-size-h4: 1.215rem;
-  --text-size-h3: 1.296rem;
-  --text-size-h2: 1.383rem;
-  --text-size-h1: 1.476rem;
-  --text-bold: 600;
-  /* grays */
-  --gray00: rgb(0, 0, 0);
-  --gray10: rgb(26, 26, 26);
-  --gray20: rgb(51, 51, 51);
-  --gray30: rgb(77, 77, 77);
-  --gray40: rgb(102, 102, 102);
-  --gray50: rgb(128, 128, 128);
-  --gray60: rgb(153, 153, 153);
-  --gray70: rgb(179, 179, 179);
-  --gray80: rgb(204, 204, 204);
-  --gray90: rgb(230, 230, 230);
-  --gray100: rgb(255, 255, 255);
-  /* sizes */
-  --size-xs: 0.25em;
-  --size-s: 0.5rem;
-  --size-m: 1em;
-  --size-l: 2em;
-  --size-xl: 3em;
-  /* Theme */
-  --base-text-color: var(--gray00);
-  --base-text-light: var(--gray30);
-  --link: var(--gray40);
   /* shadows */
   --shadow-down: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
-  /* ? */
-  --global-background-color: var(--gray100);
+  /* Not sure what these are */
   --global-header-size: 49px;
   --global-header-z-index: 5;
   --sidebar-width: 200px;
-  /* indexes */
 }
 
 /* 2. Base Styles */
 html,
 body {
-  font-family: var(--font-family-sans-serif);
-  font-size: var(--base-font-size);
+  font-family: var(--body-font);
+  font-size: var(--text-size-m);
   line-height: 1.5;
-  color: var(--base-text-color);
+  color: var(--global-text-color);
   scroll-behavior: smooth;
-  scroll-padding-top: calc(var(--size-xl) * 2);
+  scroll-padding-top: calc(var(--size-xxxl) * 2);
 }
 
 /* Should I * rule this? */
@@ -104,7 +67,7 @@ h3,
 h4,
 h5,
 h6 {
-  margin: var(--size-l) 0 var(--size-m);
+  margin: var(--size-xl) 0 var(--size4);
 }
 
 hgroup > h1,
@@ -119,13 +82,13 @@ hgroup > h5 {
 p,
 dl,
 table {
-  margin: var(--size-m) 0;
+  margin: var(--size4) 0;
 }
 
 hr {
-  margin-block-start: var(--size-l);
-  margin-block-end: var(--size-l);
-  color: var(--gray70);
+  margin-block-start: var(--size-xl);
+  margin-block-end: var(--size-xl);
+  color: var(--neutral70);
   border-style: solid;
   border-width: 1px;
   border-bottom: 0;
@@ -163,7 +126,7 @@ h6 {
 }
 
 mark {
-  background-color: var(--gray90);
+  background-color: var(--neutral90);
 }
 
 b,
@@ -171,15 +134,50 @@ strong {
   font-weight: var(--text-bold);
 }
 
+i,
+em,
+var {
+  font-style: var(--text-italic);
+}
+
+sup,
+sub {
+  font-size: var(--text-size-xs);
+}
+
+code,
+samp {
+  padding: var(--size1) var(--size2);
+  font-family: var(--code-font-family);
+  background-color: var(--code-highlight);
+}
+
+ins {
+  background-color: var(--text-highlight);
+  text-decoration: underline;
+
+  &::before {
+    content: "+ ";
+  }
+}
+
+del {
+  text-decoration: line-through;
+}
+
+abbr {
+  cursor: pointer;
+}
+
 b {
   text-transform: uppercase;
 }
 
 blockquote {
-  padding: var(--size-m);
-  border: solid 1px var(--gray00);
-  margin: var(--size-m);
-  margin-inline: var(--size-m);
+  padding: var(--size4);
+  border: solid 1px var(--neutral00);
+  margin: var(--size4);
+  margin-inline: var(--size4);
 
   & > p:first-of-type {
     margin-top: 0;
@@ -196,28 +194,28 @@ a {
 
 h1 > a,
 h2 > a {
-  color: var(--base-text-color);
+  color: var(--global-text-color);
   text-decoration: none;
 }
 
 /* 4. List Styling */
 ol,
 ul {
-  margin-block-start: var(--size-m);
-  margin-block-end: var(--size-m);
-  padding-inline-start: var(--size-l);
-  padding-inline-end: var(--size-m);
+  margin-block-start: var(--size4);
+  margin-block-end: var(--size4);
+  padding-inline-start: var(--size-xl);
+  padding-inline-end: var(--size4);
 }
 
 ol > li,
 ul > li {
-  padding: 0 0 0 var(--size-l);
-  margin: var(--size-s) 0 var(--size-s) var(--size-m);
+  padding: 0 0 0 var(--size-xl);
+  margin: var(--size3) 0 var(--size3) var(--size4);
 }
 
 ol > li > ol,
 ul > li > ul {
-  padding-inline-start: var(--size-xs);
+  padding-inline-start: var(--size2);
 }
 
 ol > li > ol {
@@ -257,12 +255,12 @@ table {
 }
 
 table:has(caption) {
-  margin-top: var(--size-l);
+  margin-top: var(--size-xl);
 }
 
 table th,
 table td {
-  padding: var(--size-xs) var(--size-s);
+  padding: var(--size2) var(--size3);
   text-align: center;
   vertical-align: top;
 }
@@ -292,26 +290,26 @@ table > tfoot > tr > td {
 }
 
 table > tbody:not(:only-of-type):nth-of-type(odd) {
-  background-color: var(--gray80);
+  background-color: var(--neutral80);
 }
 
 /* 6. Form */
 form,
 fieldset {
-  margin: var(--size-l) 0;
+  margin: var(--size-xl) 0;
 }
 
 fieldset {
-  padding: var(--size-s) var(--size-m);
-  border: 1px solid var(--gray00);
+  padding: var(--size3) var(--size4);
+  border: 1px solid var(--neutral00);
 
   & fieldset {
-    border-radius: var(--size-xs);
+    border-radius: var(--size2);
   }
 }
 
 /* fieldset:has(button) {
-  padding-bottom: var(--size-l);
+  padding-bottom: var(--size-xl);
 } */
 
 legend {
@@ -321,7 +319,7 @@ legend {
 
 label {
   display: block;
-  margin: var(--size-l) 0;
+  margin: var(--size-xl) 0;
   font-size: var(--text-size-xs);
   line-height: 1;
 }
@@ -329,10 +327,10 @@ label {
 input:not([type="range"]),
 select,
 textarea {
-  padding: var(--size-s);
-  border: 1px solid var(--gray00);
-  border-radius: var(--size-xs);
-  margin-top: var(--size-xs);
+  padding: var(--size3);
+  border: 1px solid var(--neutral00);
+  border-radius: var(--size2);
+  margin-top: var(--size2);
   font-size: var(--text-size-s);
 }
 
@@ -340,12 +338,12 @@ input:focus,
 select:focus,
 textarea:focus {
   outline: none;
-  box-shadow: 3px 3px 0 0 var(--gray20);
+  box-shadow: 3px 3px 0 0 var(--neutral20);
 }
 
 input[type="checkbox"]:focus,
 input[type="radio"]:focus {
-  box-shadow: 1px 1px 0 0 var(--gray20);
+  box-shadow: 1px 1px 0 0 var(--neutral20);
 }
 
 input:not([type="checkbox"]):not([type="radio"]),
@@ -358,7 +356,7 @@ textarea {
 input::placeholder,
 select::placeholder,
 textarea::placeholder {
-  color: var(--base-text-light);
+  color: var(--global-text-light);
 }
 
 /* Range
@@ -384,7 +382,7 @@ input[type="range"] {
 }
 
 input[type="range"]::-moz-range-track {
-  background: var(--gray60);
+  background: var(--neutral60);
   border-radius: 1px;
   width: 100%;
   height: 2px;
@@ -392,7 +390,7 @@ input[type="range"]::-moz-range-track {
 }
 /* didn't work with comma */
 input[type="range"]::-webkit-slider-runnable-track {
-  background: var(--gray60);
+  background: var(--neutral60);
   border-radius: 1px;
   width: 100%;
   height: 2px;
@@ -404,8 +402,8 @@ input[type="range"]::-webkit-slider-thumb {
   margin-top: -7px;
   width: 14px;
   height: 14px;
-  background: var(--gray60);
-  border: 1px solid var(--gray50);
+  background: var(--neutral60);
+  border: 1px solid var(--neutral50);
   border-radius: 50%;
   cursor: pointer;
   -webkit-appearance: none;
@@ -414,29 +412,29 @@ input[type="range"]::-webkit-slider-thumb {
 input[type="range"]::-moz-range-thumb {
   width: 14px;
   height: 14px;
-  background: var(--gray60);
-  border: 1px solid var(--gray50);
+  background: var(--neutral60);
+  border: 1px solid var(--neutral50);
   border-radius: 50%;
   cursor: pointer;
 }
 
 input[type="range"]::-ms-fill-lower {
-  background: var(--gray80);
-  border: 1px solid var(--gray60);
+  background: var(--neutral80);
+  border: 1px solid var(--neutral60);
   border-radius: 2px;
 }
 
 input[type="range"]::-ms-fill-upper {
-  background: var(--gray60);
-  border: 1px solid var(--gray60);
+  background: var(--neutral60);
+  border: 1px solid var(--neutral60);
   border-radius: 2px;
 }
 
 input[type="range"]::-ms-thumb {
   width: 14px;
   height: 14px;
-  background: var(--gray60);
-  border: 1px solid var(--gray50);
+  background: var(--neutral60);
+  border: 1px solid var(--neutral50);
   border-radius: 50%;
   cursor: pointer;
   margin-top: 0px;
@@ -444,11 +442,11 @@ input[type="range"]::-ms-thumb {
 }
 
 input[type="range"]:focus::-ms-fill-lower {
-  background: var(--gray60);
+  background: var(--neutral60);
 }
 
 input[type="range"]:focus::-ms-fill-upper {
-  background: var(--gray80);
+  background: var(--neutral80);
 }
 
 @supports (-ms-ime-align: auto) {
@@ -490,7 +488,7 @@ input[type="radio"]:checked::after {
   content: "";
   position: absolute;
   inset: 0;
-  background-color: var(--gray20);
+  background-color: var(--neutral20);
   mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='4'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
   mask-size: 90%;
   mask-position: center;
@@ -504,38 +502,38 @@ input[type="radio"] {
 input:disabled,
 select:disabled,
 textarea:disabled {
-  border-color: var(--gray90);
-  color: var(--gray20);
-  background-color: var(--gray90);
+  border-color: var(--neutral90);
+  color: var(--neutral20);
+  background-color: var(--neutral90);
 }
 
 /* button
 button {
   box-sizing: border-box;
-  padding: var(--size-s);
-  border: 1px solid var(--gray00);
-  border-radius: var(--size-xs);
-  color: var(--gray00);
-  background-color: var(--gray100);
+  padding: var(--size3);
+  border: 1px solid var(--neutral00);
+  border-radius: var(--size2);
+  color: var(--neutral00);
+  background-color: var(--neutral100);
   cursor: pointer;
   appearance: none;
 }
 
 button[type="submit"] {
-  border-color: var(--gray100);
-  color: var(--gray100);
-  background-color: var(--gray10);
+  border-color: var(--neutral100);
+  color: var(--neutral100);
+  background-color: var(--neutral10);
 }
 
 button:disabled {
-  background-color: var(--gray90);
-  border-color: var(--gray90);
-  color: var(--gray20);
+  background-color: var(--neutral90);
+  border-color: var(--neutral90);
+  color: var(--neutral20);
   cursor: not-allowed;
 }
 
 button:active:not(:disabled) {
-  box-shadow: -3px -3px 0 0 var(--gray20);
+  box-shadow: -3px -3px 0 0 var(--neutral20);
 }
 */
 
@@ -548,8 +546,8 @@ button:active:not(:disabled) {
 
 /* 8. Article */
 article {
-  margin-block-start: var(--size-xl);
-  margin-block-end: var(--size-m);
+  margin-block-start: var(--size-xxxl);
+  margin-block-end: var(--size4);
 }
 
 /* article > header > hgroup > h1 {
@@ -567,13 +565,13 @@ article > header > hgroup > div > a {
 
 article > header > time {
   font-size: var(--text-size-s);
-  color: var(--base-text-light);
+  color: var(--global-text-light);
 }
 
 /* 9. Navigation */
 .toc {
-  margin-block-end: var(--size-m);
-  margin-block-start: var(--size-m);
+  margin-block-end: var(--size4);
+  margin-block-start: var(--size4);
 }
 
 menu {
@@ -586,8 +584,8 @@ menu {
 
 menu a {
   display: inline-block;
-  padding-top: var(--size-xs);
-  padding-bottom: var(--size-xs);
+  padding-top: var(--size2);
+  padding-bottom: var(--size2);
 }
 
 .toc menu {
@@ -601,8 +599,8 @@ menu a {
   inset: 0 0 auto;
   z-index: var(--global-header-z-index);
   height: var(--global-header-size);
-  padding: var(--size-m);
-  background-color: var(--gray100);
+  padding: var(--size4);
+  background-color: var(--neutral100);
   box-shadow: var(--shadow-down);
 }
 
@@ -621,12 +619,12 @@ menu a {
 main {
   position: relative;
   inset: var(--global-header-size) 0 0;
-  margin: 0 var(--size-m);
+  margin: 0 var(--size4);
 }
 
 /* 9. A. Pagination */
 .pagination {
-  margin: var(--size-m);
+  margin: var(--size4);
   font-size: var(--test-size-s);
 }
 
@@ -656,7 +654,7 @@ main {
 
   &[aria-current="page"] {
     border-color: var(--link);
-    color: var(--gray100);
+    color: var(--neutral100);
     background-color: var(--link);
   }
 } */
@@ -681,7 +679,7 @@ main {
 
   & > .hamburger-line {
     height: 2px;
-    background-color: var(--gray00);
+    background-color: var(--neutral00);
     transition: all 0.3s ease;
     pointer-events: none;
   }
@@ -708,10 +706,10 @@ main {
   top: var(--global-header-size);
   z-index: calc(var(--global-header-z-index) - 1);
   width: 100%;
-  padding-top: var(--size-m);
+  padding-top: var(--size4);
   height: calc(100vh - var(--global-header-size));
   transition: transform 0.3s ease-in-out;
-  background-color: var(--gray100);
+  background-color: var(--neutral100);
 }
 
 .right {
@@ -733,17 +731,17 @@ main {
 /* Sidebar */
 .layout-sidebar {
   & > .sidebar {
-    margin-top: var(--size-l);
+    margin-top: var(--size-xl);
   }
 }
 
 @media screen and (min-width: 900px) {
   .layout-sidebar {
     display: flex;
-    gap: var(--size-m);
+    gap: var(--size4);
 
     & > .main {
-      margin-right: var(--size-m);
+      margin-right: var(--size4);
     }
 
     & > .sidebar {
@@ -754,13 +752,13 @@ main {
       flex-direction: column;
       height: calc(100vh - var(--global-header-size));
       min-width: var(--sidebar-width);
-      padding: var(--size-m) 0;
+      padding: var(--size4) 0;
       margin-top: 0;
 
       /* & > header {} */
 
       & .sidebar-content {
-        margin: var(--size-m) 0;
+        margin: var(--size4) 0;
         overflow-y: auto;
         flex-grow: 1;
 

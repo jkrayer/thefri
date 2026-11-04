@@ -1,0 +1,162 @@
+@charset "UTF-8";
+
+/**
+ * Primitive Tokens: raw design values like fonts, colors, and spacing for easy
+ * customization of the design system. These are the foundational values that
+ * can be used throughout the CSS to maintain consistency and make
+ * updates easier
+ */
+:root {
+  --font-family-base-mono: "Courier New", Courier, monospace;
+  --font-family-base-serif: "Times New Roman", Times, serif;
+  --font-family-base-sans-serif: "Helvetica", "Arial", sans-serif;
+  --font-family-base: "Jost", var(--font-family-base-sans-serif);
+  --font-family-base-weight: 400;
+  --font-family-base-italic: italic;
+  --font-family-base-line-height: 1.5;
+  --font-family-base-letter-spacing: normal;
+
+  /* Assumes browser default size 16px; */
+  /* https://typescale.com/ 1.067 Minor Second */
+  --text-size-multiplier: 1.067;
+  --font-size-base: 1rem;
+  --text-size-s: calc(var(--font-size-base) / var(--text-size-multiplier));
+  --text-size-xs: calc(var(--text-size-s) / var(--text-size-multiplier));
+  --text-size-h6: calc(var(--font-size-base) * var(--text-size-multiplier));
+  --text-size-h5: calc(var(--text-size-h6) * var(--text-size-multiplier));
+  --text-size-h4: calc(var(--text-size-h5) * var(--text-size-multiplier));
+  --text-size-h3: calc(var(--text-size-h4) * var(--text-size-multiplier));
+  --text-size-h2: calc(var(--text-size-h3) * var(--text-size-multiplier));
+  --text-size-h1: calc(var(--text-size-h2) * var(--text-size-multiplier));
+
+  /* spacing */
+  --space-xxs: 0.125rem; /* 1/8 */
+  --space-xs: 0.25rem; /* 1/4 */
+  --space-s: 0.5rem; /* 2/4 */
+  --space-m: 1rem; /* 1 */
+  --space-l: 1.25rem; /* 5/4 */
+  --space-xl: 1.5rem; /* 6/4 */
+  --space-xxl: 1.75rem; /* 7/4 */
+  --space-xxxl: 2rem; /* 8/4 */
+
+  /* Neutrals */
+  --neutral00: rgb(0, 0, 0);
+  --neutral10: rgb(26, 26, 26);
+  --neutral20: rgb(51, 51, 51);
+  --neutral30: rgb(77, 77, 77);
+  --neutral40: rgb(102, 102, 102);
+  --neutral50: rgb(128, 128, 128);
+  --neutral60: rgb(153, 153, 153);
+  --neutral70: rgb(179, 179, 179);
+  --neutral80: rgb(204, 204, 204);
+  --neutral90: rgb(230, 230, 230);
+  --neutral100: rgb(255, 255, 255);
+
+  /* Colors */
+  --color-primary: #0085bf;
+  --color-secondary: #ff8a3d;
+  --color-tertiary: #6a4ccf;
+  --color-danger: #dc3545;
+  --color-success: #28a745;
+  --color-warning: #ffc107;
+  --color-info: #17a2b8;
+
+  /**
+   * Semantic Tokens: contextual design values that derive from the primitive tokens.
+   * These are used throughout the CSS to maintain consistency and make
+   * updates easier
+   */
+
+  /* Type */
+  --body-font: var(--font-family-base);
+
+  /* Font Sizes */
+  --text-size-xs: var(--text-size-xs);
+  --text-size-s: var(--text-size-s);
+  --text-size-m: var(--font-size-base);
+  --text-size-l: var(--text-size-h6);
+  --text-size-xl: var(--text-size-h5);
+  --text-size-xxl: var(--text-size-h4);
+  --text-size-xxxl: var(--text-size-h3);
+  --text-size-xxxxl: var(--text-size-h2);
+  --text-size-xxxxxl: var(--text-size-h1);
+
+  /* Radius */
+  --radius-xs: 0.125em;
+  --radius-sm: 0.25em;
+  --radius-md: 0.375em;
+  --radius-lg: 0.5em;
+
+  /* Spacing */
+  --size1: var(--space-xxs);
+  --size2: var(--space-xs);
+  --size3: var(--space-s);
+  --size4: var(--space-m);
+  --size5: var(--space-l);
+  --size6: var(--space-xl);
+  --size7: var(--space-xxl);
+  --size8: var(--space-xxxl);
+
+  /* Colors */
+  --global-background-color: var(--neutral100);
+  --global-text-color: var(--neutral10);
+  --global-text-light: var(--neutral30);
+
+  --link: var(--color-primary);
+
+  --primary: var(--color-primary);
+  --primaryDark: color-mix(in srgb, var(--primary) 100%, #000 25%);
+  --primaryDisabled: color-mix(in srgb, var(--primary) 100%, #fff 50%);
+
+  --secondary: var(--color-secondary);
+  --secondaryDark: color-mix(in srgb, var(--secondary) 100%, #000 25%);
+  --secondaryDisabled: color-mix(in srgb, var(--secondary) 100%, #fff 50%);
+
+  --tertiary: var(--color-tertiary);
+  --tertiaryDark: color-mix(in srgb, var(--tertiary) 100%, #000 25%);
+  --tertiaryDisabled: color-mix(in srgb, var(--tertiary) 100%, #fff 50%);
+
+  --danger: var(--color-danger);
+  --dangerDark: color-mix(in srgb, var(--danger) 100%, #000 25%);
+  --dangerDisabled: color-mix(in srgb, var(--danger) 100%, #fff 50%);
+
+  --success: var(--color-success);
+  --successDark: color-mix(in srgb, var(--success) 100%, #000 25%);
+  --successDisabled: color-mix(in srgb, var(--success) 100%, #fff 50%);
+
+  --warning: var(--color-warning);
+  --warningDark: color-mix(in srgb, var(--warning) 100%, #000 25%);
+  --warningDisabled: color-mix(in srgb, var(--warning) 100%, #fff 50%);
+
+  --info: var(--color-info);
+  --infoDark: color-mix(in srgb, var(--info) 100%, #000 25%);
+  --infoDisabled: color-mix(in srgb, var(--info) 100%, #fff 50%);
+
+  /* I'm not 100% on the below */
+  --text-bold: 600;
+  --text-italic: italic;
+
+  --code-font-family: var(--font-family-fixed);
+  --code-highlight: var(--neutral90);
+  --text-highlight: var(--neutral100);
+  /* --color-primary: var(--color-blue-500); */
+  /* --color-link: var(--color-blue-500); */
+  /* --color-link-hover: var(--color-blue-500); */
+  /* --color-link-active: var(--color-blue-500); */
+  /* --color-link-disabled: var(--color-blue-500); */
+
+  /* Theme */
+
+  --link-hover-color: var(--color-primary-light);
+  --link-active-color: var(--color-primary-dark);
+  --link-disabled-color: var(--neutral60);
+  --base-text-light: var(--neutral30);
+  --link: var(--neutral40);
+  /* shadows */
+  --shadow-down: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+  /* ? */
+  --global-header-size: 49px;
+  --global-header-z-index: 5;
+  --sidebar-width: 200px;
+  /* indexes */
+}
