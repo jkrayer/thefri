@@ -1,6 +1,6 @@
 {
   "name": "thefri",
-  "version": "0.2.1",
+  "version": "0.4.0",
   "license": "MIT",
   "author": "James Krayer",
   "homepage": "https://jameskrayer.com/thefri",
@@ -14,5 +14,9 @@
     "doc": "docs"
   },
   "keywords": [],
-  "files": []
+  "files": [],
+  "scripts": {
+    "dev": "http-server -c-1 ./docs"
+  },
+  "devDependencies": {}
 }

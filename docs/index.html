@@ -14,7 +14,8 @@
       href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./styles/primitives.css" />
+    <link rel="stylesheet" href="./styles/style.css" />
     <link rel="stylesheet" href="./timeline.css" />
     <link rel="stylesheet" href="./grid12.css" />
   </head>
@@ -75,6 +76,151 @@
       </aside>
 
       <div class="main">
+        <section id="typography">
+          <article>
+            <header>
+              <h1>Lorem Ipsum Field Notes</h1>
+              <p class="buyline">
+                <time datetime="2026-11-03">November 3, 2026</time>
+                <small>Update</small>
+              </p>
+            </header>
+
+            <p>
+              Hi, I'm Thefri and I'm having some growing pains. Originally I was
+              conceived of as a minimal CSS framework, but the world is lousy
+              with them. So I'm growing up, into a minimally documented research
+              project. View my source. Copy my code. Call it your own. Thefri
+              cares not.
+            </p>
+
+            <ol>
+              <li><a href="./button/">Button</a></li>
+              <li><a href="./icons/">Icons</a></li>
+            </ol>
+
+            <h2>Typography System</h2>
+
+            <p>
+              Define your site's core font family by setting the CSS variable
+              <code>--font-family-base</code>, the default value is
+              <code>"Jost", sans-serif</code>. Set the base font-size by setting
+              <code>--font-size-base</code> (default 1rem) and set your type
+              scale using <code>--text-size-multiplier</code> (default 1.2).
+              Thefri will generate font sizes xs to xxxxxl by applying
+              <code>--text-size-multiplier</code> to
+              <code>--font-size-base</code>.
+            </p>
+
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
+              posuere, <strong>gravida magna</strong> at
+              <em>varius finibus</em>, nunc sapien dapibus nisl, vitae faucibus
+              est erat non risus. See also <a href="#">this related note</a> for
+              context.
+            </p>
+
+            <p>
+              In everyday <abbr title="User Interface">UI</abbr> work,
+              <i>kerning</i> and rhythm matter; a single line can
+              <b>shift attention</b>. We replaced <del>rigid spacing</del> with
+              <ins>adaptive spacing</ins> and highlighted one key decision with
+              <mark>intentional contrast</mark>.
+            </p>
+
+            <p>
+              The prototype used <code>clamp()</code> for scale, where
+              <var>step</var> was tuned until the terminal returned
+              <samp>Build complete</samp>. Version 2<sup>nd</sup> introduced a
+              minor tweak to H<sub>2</sub> sizing for better balance.
+            </p>
+
+            <blockquote class="inside left">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit; clarity
+              is not loud, it is consistent.
+            </blockquote>
+
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
+              posuere, <strong>gravida magna</strong> at
+              <em>varius finibus</em>, nunc sapien dapibus nisl, vitae faucibus
+              est erat non risus. See also <a href="#">this related note</a> for
+              context.
+            </p>
+
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
+              maximus lorem eget nisl lobortis porta. Mauris quis bibendum est.
+              Donec ultricies libero eget iaculis condimentum. Maecenas
+              tincidunt venenatis eros, id fringilla enim hendrerit vel.
+              Praesent diam enim, consectetur sed feugiat eget, iaculis vel
+              nunc. Nunc sed metus in enim rutrum sollicitudin vitae in quam.
+              Nunc commodo tristique elit sit amet sodales. Cras et cursus eros.
+              Praesent sed tortor ut nulla elementum molestie ac sed dolor.
+              Fusce egestas rhoncus auctor. Suspendisse ultricies elementum dui
+              quis venenatis. Vestibulum blandit varius fringilla. Nunc vitae
+              faucibus nulla. Suspendisse ex augue, vulputate in laoreet at,
+              rutrum non eros. Duis a commodo diam.
+            </p>
+
+            <h3>Scale and Hierarchy</h3>
+
+            <p>
+              Duis molestie ex leo, non bibendum ipsum volutpat eu. Cras
+              consectetur lorem justo, ut ullamcorper nulla egestas nec. Proin
+              dignissim, magna eget pulvinar placerat, mi libero pellentesque
+              dui, in tempus eros lectus id turpis. Donec pharetra, diam in
+              luctus finibus, risus est iaculis sapien, nec gravida justo urna
+              ut justo. Suspendisse aliquam orci et nisl tincidunt suscipit nec
+              id lorem. Pellentesque ac justo eget lorem sagittis dictum.
+              Curabitur auctor eleifend dui quis pulvinar. Ut eget faucibus
+              arcu. Morbi volutpat ornare erat nec fringilla. Mauris nisl ante,
+              elementum vel eros in, euismod vestibulum elit. Nunc auctor in
+              metus vitae vestibulum. Nunc pellentesque justo vel metus
+              hendrerit, quis cursus augue sagittis.
+            </p>
+
+            <h4>Spacing Decisions</h4>
+
+            <p>
+              Ut purus neque, gravida sit amet lorem nec, venenatis vestibulum
+              sem. Sed et est et tortor finibus dapibus. Nunc pellentesque orci
+              a bibendum porta. Mauris interdum nibh sit amet leo laoreet, ac
+              dignissim ex hendrerit. Sed et ligula quam. Maecenas tellus nisl,
+              volutpat in sapien in, ullamcorper scelerisque sapien. Duis
+              volutpat facilisis lacus at laoreet. Pellentesque sagittis
+              condimentum elit, quis vestibulum ligula. Vivamus gravida
+              venenatis leo in tincidunt. Nullam tincidunt risus et lacus
+              tincidunt accumsan. Donec gravida ex malesuada nibh pulvinar,
+              porttitor luctus mi auctor.
+            </p>
+
+            <h5>Implementation Notes</h5>
+
+            <p>
+              Sed dignissim libero non nunc ultricies dictum. Proin iaculis
+              eleifend justo at feugiat. Nullam quis justo ex. Duis ut metus
+              pulvinar, aliquet nunc ut, vestibulum lacus. Phasellus fringilla
+              nisl id eleifend hendrerit. Praesent quis cursus risus. Nam in
+              lorem consectetur leo tempor ultricies. Fusce malesuada facilisis
+              mattis.
+            </p>
+
+            <h6>Final QA Check</h6>
+
+            <p>
+              Mauris molestie mi mauris, ac congue dui finibus vitae. Mauris
+              porttitor condimentum arcu in dapibus. Nunc mollis mi leo, eu
+              faucibus turpis blandit ut. In vel est neque. Fusce nec pharetra
+              dolor. Suspendisse eu magna id nulla dapibus sollicitudin id ac
+              est. Duis ullamcorper dapibus libero, a congue elit tristique
+              vitae. Pellentesque habitant morbi tristique senectus et netus et
+              malesuada fames ac turpis egestas. Morbi a tellus ornare metus
+              ornare mollis.
+            </p>
+          </article>
+        </section>
+
         <h1>Heading 1</h1>
         <h2>Heading 2</h2>
         <h3>Heading 3</h3>
@@ -830,13 +976,13 @@
             .testcol {
               box-sizing: border-box;
               height: 100%;
-              border: 1px solid var(--gray20);
+              border: 1px solid var(--neutral20);
               padding: 1em;
-              background-color: var(--gray100);
+              background-color: var(--neutral100);
               text-align: center;
             }
             .testr {
-              background-color: var(--gray90);
+              background-color: var(--neutral90);
             }
             .testh {
               height: 100px;
